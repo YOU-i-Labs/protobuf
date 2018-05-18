@@ -19,6 +19,12 @@ cmake_dependent_option(protobuf_BUILD_LIBPROTOBUF "Build full library" ON "NOT p
 cmake_dependent_option(protobuf_BUILD_TESTS "Build tests" ON "protobuf_BUILD_PROTOC;protobuf_BUILD_LIBPROTOBUF_LITE;protobuf_BUILD_LIBPROTOBUF" OFF)
 cmake_dependent_option(protobuf_BUILD_EXAMPLES "Build examples" OFF "protobuf_BUILD_PROTOC;protobuf_BUILD_LIBPROTOBUF_LITE;protobuf_BUILD_LIBPROTOBUF" OFF)
 
+if (TVOS)
+  add_definitions(-DTVOS)
+  set(protobuf_BUILD_PROTOC OFF CACHE BOOL "" FORCE)
+  set(protobuf_BUILD_TESTS  OFF CACHE BOOL "" FORCE)
+endif()
+
 if (BUILD_SHARED_LIBS)
   set(protobuf_BUILD_SHARED_LIBS_DEFAULT ON)
 else (BUILD_SHARED_LIBS)

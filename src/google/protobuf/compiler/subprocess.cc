@@ -299,7 +299,10 @@ void Subprocess::Start(const string& program, SearchMode search_mode) {
 
   char* argv[2] = { strdup(program.c_str()), NULL };
 
+// fork is not supported for TVOS
+#ifndef TVOS
   child_pid_ = fork();
+#endif
   if (child_pid_ == -1) {
     GOOGLE_LOG(FATAL) << "fork: " << strerror(errno);
   } else if (child_pid_ == 0) {
@@ -314,10 +317,16 @@ void Subprocess::Start(const string& program, SearchMode search_mode) {
 
     switch (search_mode) {
       case SEARCH_PATH:
+// execvp is not supported for TVOS
+#ifndef TVOS
         execvp(argv[0], argv);
+#endif
         break;
       case EXACT_NAME:
+// execvp is not supported for TVOS
+#ifndef TVOS
         execv(argv[0], argv);
+#endif
         break;
     }
 
