@@ -56,6 +56,10 @@
 #include <ctype.h>
 #endif
 
+#if defined(YI_PORT_FILE_REQUIRED)
+#include <YiPort.h>
+#endif
+
 namespace google {
 namespace protobuf {
 namespace compiler {

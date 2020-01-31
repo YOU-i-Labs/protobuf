@@ -21,9 +21,11 @@ project(protobuf C CXX)
 
 # Add c++11 flags
 if (CYGWIN)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
+elseif (TIZEN_NACL)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
 else()
-  set(CMAKE_CXX_STANDARD 11)
+  set(CMAKE_CXX_STANDARD 14)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
@@ -108,17 +110,18 @@ endif (CMAKE_USE_PTHREADS_INIT)
 
 set(_protobuf_FIND_ZLIB)
 if (protobuf_WITH_ZLIB)
-  find_package(ZLIB)
+  hunter_add_package(ZLIB)
+  find_package(ZLIB CONFIG REQUIRED)
   if (ZLIB_FOUND)
     set(HAVE_ZLIB 1)
     # FindZLIB module define ZLIB_INCLUDE_DIRS variable
     # Set ZLIB_INCLUDE_DIRECTORIES for compatible
     set(ZLIB_INCLUDE_DIRECTORIES ${ZLIB_INCLUDE_DIRECTORIES} ${ZLIB_INCLUDE_DIRS})
     # Using imported target if exists
-    if (TARGET ZLIB::ZLIB)
-      set(ZLIB_LIBRARIES ZLIB::ZLIB)
+    if (TARGET ZLIB::zlib)
+      set(ZLIB_LIBRARIES ZLIB::zlib)
       set(_protobuf_FIND_ZLIB "if(NOT ZLIB_FOUND)\n  find_package(ZLIB)\nendif()")
-    endif (TARGET ZLIB::ZLIB)
+    endif (TARGET ZLIB::zlib)
   else (ZLIB_FOUND)
     set(HAVE_ZLIB 0)
     # Explicitly set these to empty (override NOT_FOUND) so cmake doesn't
