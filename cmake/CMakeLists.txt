@@ -108,7 +108,8 @@ endif (CMAKE_USE_PTHREADS_INIT)
 
 set(_protobuf_FIND_ZLIB)
 if (protobuf_WITH_ZLIB)
-  find_package(ZLIB)
+  hunter_add_package(ZLIB)
+  find_package(ZLIB CONFIG REQUIRED)
   if (ZLIB_FOUND)
     set(HAVE_ZLIB 1)
     # FindZLIB module define ZLIB_INCLUDE_DIRS variable
