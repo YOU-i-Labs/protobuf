@@ -106,7 +106,15 @@ def UpdateCpp():
       r'^#define GOOGLE_PROTOBUF_VERSION .*$',
       '#define GOOGLE_PROTOBUF_VERSION %s' % cpp_version,
       line)
+    line = re.sub(
+      r'^#define PROTOBUF_VERSION .*$',
+      '#define PROTOBUF_VERSION %s' % cpp_version,
+      line)
     if NEW_VERSION_INFO[2] == '0':
+      line = re.sub(
+        r'^#define PROTOBUF_MIN_HEADER_VERSION_FOR_PROTOC .*$',
+        '#define PROTOBUF_MIN_HEADER_VERSION_FOR_PROTOC %s' % cpp_version,
+        line)
       line = re.sub(
         r'^#define GOOGLE_PROTOBUF_MIN_PROTOC_VERSION .*$',
         '#define GOOGLE_PROTOBUF_MIN_PROTOC_VERSION %s' % cpp_version,
@@ -147,13 +155,13 @@ def UpdateCsharp():
   RewriteXml('csharp/src/Google.Protobuf/Google.Protobuf.csproj',
     lambda document : ReplaceText(
       Find(Find(document.documentElement, 'PropertyGroup'), 'VersionPrefix'),
-      GetFullVersion(rc_suffix = '-rc.')),
+      GetFullVersion(rc_suffix = '-rc')),
     add_xml_prefix=False)
 
   RewriteXml('csharp/Google.Protobuf.Tools.nuspec',
     lambda document : ReplaceText(
       Find(Find(document.documentElement, 'metadata'), 'version'),
-      GetFullVersion(rc_suffix = '-rc.')))
+      GetFullVersion(rc_suffix = '-rc')))
 
 
 def UpdateJava():
@@ -212,7 +220,7 @@ def UpdateObjectiveC():
   RewriteTextFile('Protobuf.podspec',
     lambda line : re.sub(
       r"^  s.version  = '.*'$",
-      "  s.version  = '%s'" % GetFullVersion(rc_suffix = '-rc.'),
+      "  s.version  = '%s'" % GetFullVersion(rc_suffix = '-rc'),
       line))
 
 
@@ -267,6 +275,12 @@ def UpdatePhp():
     lambda line : re.sub(
       r'PHP_PROTOBUF_VERSION ".*"$',
       'PHP_PROTOBUF_VERSION "%s"' % NEW_VERSION,
+      line))
+
+  RewriteTextFile('php/ext/google/protobuf/protobuf.h',
+    lambda line : re.sub(
+      r"^#define PHP_PROTOBUF_VERSION .*$",
+      "#define PHP_PROTOBUF_VERSION \"%s\"" % GetFullVersion(rc_suffix = 'RC'),
       line))
 
   RewriteTextFile('php/ext/google/protobuf/protobuf.h',

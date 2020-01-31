@@ -111,13 +111,13 @@ VALUE native_slot_encode_and_freeze_string(upb_fieldtype_t type, VALUE value) {
   return value;
 }
 
-void native_slot_set(const char* name, 
+void native_slot_set(const char* name,
                      upb_fieldtype_t type, VALUE type_class,
                      void* memory, VALUE value) {
   native_slot_set_value_and_case(name, type, type_class, memory, value, NULL, 0);
 }
 
-void native_slot_set_value_and_case(const char* name, 
+void native_slot_set_value_and_case(const char* name,
                                     upb_fieldtype_t type, VALUE type_class,
                                     void* memory, VALUE value,
                                     uint32_t* case_memory,
@@ -178,9 +178,39 @@ void native_slot_set_value_and_case(const char* name,
       if (CLASS_OF(value) == CLASS_OF(Qnil)) {
         value = Qnil;
       } else if (CLASS_OF(value) != type_class) {
-        rb_raise(cTypeError,
-                 "Invalid type %s to assign to submessage field '%s'.",
-                rb_class2name(CLASS_OF(value)), name);
+        // check for possible implicit conversions
+        VALUE converted_value = NULL;
+        char* field_type_name = rb_class2name(type_class);
+
+        if (strcmp(field_type_name, "Google::Protobuf::Timestamp") == 0 &&
+            rb_obj_is_kind_of(value, rb_cTime)) {
+          // Time -> Google::Protobuf::Timestamp
+          VALUE hash = rb_hash_new();
+          rb_hash_aset(hash, rb_str_new2("seconds"), rb_funcall(value, rb_intern("to_i"), 0));
+          rb_hash_aset(hash, rb_str_new2("nanos"), rb_funcall(value, rb_intern("nsec"), 0));
+          VALUE args[1] = { hash };
+          converted_value = rb_class_new_instance(1, args, type_class);
+        } else if (strcmp(field_type_name, "Google::Protobuf::Duration") == 0 &&
+                   rb_obj_is_kind_of(value, rb_cNumeric)) {
+          // Numeric -> Google::Protobuf::Duration
+          VALUE hash = rb_hash_new();
+          rb_hash_aset(hash, rb_str_new2("seconds"), rb_funcall(value, rb_intern("to_i"), 0));
+          VALUE n_value = rb_funcall(value, rb_intern("remainder"), 1, INT2NUM(1));
+          n_value = rb_funcall(n_value, rb_intern("*"), 1, INT2NUM(1000000000));
+          n_value = rb_funcall(n_value, rb_intern("round"), 0);
+          rb_hash_aset(hash, rb_str_new2("nanos"), n_value);
+          VALUE args[1] = { hash };
+          converted_value = rb_class_new_instance(1, args, type_class);
+        }
+
+        // raise if no suitable conversaion could be found
+        if (converted_value == NULL) {
+          rb_raise(cTypeError,
+                   "Invalid type %s to assign to submessage field '%s'.",
+                  rb_class2name(CLASS_OF(value)), name);
+        } else {
+          value = converted_value;
+        }
       }
       DEREF(memory, VALUE) = value;
       break;
@@ -668,7 +698,7 @@ void layout_clear(MessageLayout* layout,
 
     DEREF(memory, VALUE) = ary;
   } else {
-    native_slot_set(upb_fielddef_name(field), 
+    native_slot_set(upb_fielddef_name(field),
                     upb_fielddef_type(field), field_type_class(field),
                     memory, layout_get_default(field));
   }
@@ -839,7 +869,7 @@ void layout_set(MessageLayout* layout,
     check_repeated_field_type(val, field);
     DEREF(memory, VALUE) = val;
   } else {
-    native_slot_set(upb_fielddef_name(field), 
+    native_slot_set(upb_fielddef_name(field),
                     upb_fielddef_type(field), field_type_class(field),
                     memory, val);
   }
