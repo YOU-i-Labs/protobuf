@@ -79,7 +79,7 @@ set_target_properties(libprotobuf-lite PROPERTIES
     DEBUG_POSTFIX "${protobuf_DEBUG_POSTFIX}")
 add_library(protobuf::libprotobuf-lite ALIAS libprotobuf-lite)
 
-if(ANDROID)
-  find_package(android_log REQUIRED)
-  target_link_libraries(libprotobuf-lite PUBLIC android_log::android_log)
-endif()
+# if(ANDROID)
+#   find_package(android_log REQUIRED)
+#   target_link_libraries(libprotobuf-lite PUBLIC android_log::android_log)
+# endif()

@@ -124,7 +124,7 @@ string VersionString(int version) {
 
 namespace internal {
 
-#if defined(__ANDROID__)
+#if 0 //defined(__ANDROID__)
 inline void DefaultLogHandler(LogLevel level, const char* filename, int line,
                               const string& message) {
   if (level < GOOGLE_PROTOBUF_MIN_LOG_LEVEL) {

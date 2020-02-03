@@ -135,7 +135,7 @@ set_target_properties(libprotobuf PROPERTIES
     DEBUG_POSTFIX "${protobuf_DEBUG_POSTFIX}")
 add_library(protobuf::libprotobuf ALIAS libprotobuf)
 
-if(ANDROID)
-  find_package(android_log REQUIRED)
-  target_link_libraries(libprotobuf PUBLIC android_log::android_log)
-endif()
+# if(ANDROID)
+#   find_package(android_log REQUIRED)
+#   target_link_libraries(libprotobuf PUBLIC android_log::android_log)
+# endif()
