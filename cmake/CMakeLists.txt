@@ -204,6 +204,11 @@ if (MSVC)
   # Suppress linker warnings about files with no symbols defined.
   set(CMAKE_STATIC_LINKER_FLAGS /ignore:4221)
 
+  # Force x64 for UWP
+  if (UWP)
+    string(APPEND CMAKE_STATIC_LINKER_FLAGS " /MACHINE:X64")
+  endif()
+
   # Configure Resource Compiler
   enable_language(RC)
   # use English language (0x409) in resource compiler
