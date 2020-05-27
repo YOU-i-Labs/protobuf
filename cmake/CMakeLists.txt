@@ -120,7 +120,7 @@ if (protobuf_WITH_ZLIB)
     # Using imported target if exists
     if (TARGET ZLIB::zlib)
       set(ZLIB_LIBRARIES ZLIB::zlib)
-      set(_protobuf_FIND_ZLIB "if(NOT ZLIB_FOUND)\n  find_package(ZLIB)\nendif()")
+      set(_protobuf_FIND_ZLIB "if(NOT ZLIB_FOUND)\n  find_package(ZLIB CONFIG REQUIRED NO_CMAKE_FIND_ROOT_PATH)\nendif()")
     endif (TARGET ZLIB::zlib)
   else (ZLIB_FOUND)
     set(HAVE_ZLIB 0)
