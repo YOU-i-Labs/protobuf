@@ -30,6 +30,12 @@ else()
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
 
+if ("X${CMAKE_SYSTEM_PROCESSOR}" STREQUAL Xmipsel)
+    # Protobuf has issues compiling with O3 on mips with missing symbols
+    add_definitions(-O2)
+endif()
+
+
 # Options
 option(protobuf_BUILD_TESTS "Build tests" ON)
 option(protobuf_BUILD_CONFORMANCE "Build conformance tests" OFF)
