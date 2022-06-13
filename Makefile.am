@@ -66,23 +66,31 @@ csharp_EXTRA_DIST=                                                           \
   csharp/keys/README.md                                                      \
   csharp/protos/README.md                                                    \
   csharp/protos/map_unittest_proto3.proto                                    \
+  csharp/protos/old_extensions1.proto                                        \
+  csharp/protos/old_extensions2.proto                                        \
   csharp/protos/unittest_custom_options_proto3.proto                         \
   csharp/protos/unittest_import_public_proto3.proto                          \
+  csharp/protos/unittest_import_public.proto                                 \
   csharp/protos/unittest_import_proto3.proto                                 \
+  csharp/protos/unittest_import.proto                                        \
   csharp/protos/unittest_issues.proto                                        \
   csharp/protos/unittest_proto3.proto                                        \
+  csharp/protos/unittest.proto                                               \
   csharp/src/AddressBook/AddPerson.cs                                        \
   csharp/src/AddressBook/Addressbook.cs                                      \
   csharp/src/AddressBook/AddressBook.csproj                                  \
   csharp/src/AddressBook/ListPeople.cs                                       \
   csharp/src/AddressBook/Program.cs                                          \
   csharp/src/AddressBook/SampleUsage.cs                                      \
-  csharp/src/Google.Protobuf.Benchmarks/SerializationConfig.cs               \
-  csharp/src/Google.Protobuf.Benchmarks/SerializationBenchmark.cs            \
-  csharp/src/Google.Protobuf.Benchmarks/Program.cs                           \
-  csharp/src/Google.Protobuf.Benchmarks/Google.Protobuf.Benchmarks.csproj    \
-  csharp/src/Google.Protobuf.Benchmarks/Benchmarks.cs                        \
   csharp/src/Google.Protobuf.Benchmarks/BenchmarkMessage1Proto3.cs           \
+  csharp/src/Google.Protobuf.Benchmarks/Benchmarks.cs                        \
+  csharp/src/Google.Protobuf.Benchmarks/Google.Protobuf.Benchmarks.csproj    \
+  csharp/src/Google.Protobuf.Benchmarks/Program.cs                           \
+  csharp/src/Google.Protobuf.Benchmarks/SerializationBenchmark.cs            \
+  csharp/src/Google.Protobuf.Benchmarks/SerializationConfig.cs               \
+  csharp/src/Google.Protobuf.Benchmarks/wrapper_benchmark_messages.proto     \
+  csharp/src/Google.Protobuf.Benchmarks/WrapperBenchmark.cs                  \
+  csharp/src/Google.Protobuf.Benchmarks/WrapperBenchmarkMessages.cs          \
   csharp/src/Google.Protobuf.Conformance/Conformance.cs                      \
   csharp/src/Google.Protobuf.Conformance/Google.Protobuf.Conformance.csproj  \
   csharp/src/Google.Protobuf.Conformance/Program.cs                          \
@@ -100,9 +108,11 @@ csharp_EXTRA_DIST=                                                           \
   csharp/src/Google.Protobuf.Test/Compatibility/TypeExtensionsTest.cs        \
   csharp/src/Google.Protobuf.Test/DeprecatedMemberTest.cs                    \
   csharp/src/Google.Protobuf.Test/EqualityTester.cs                          \
+  csharp/src/Google.Protobuf.Test/ExtensionSetTest.cs                        \
   csharp/src/Google.Protobuf.Test/FieldCodecTest.cs                          \
   csharp/src/Google.Protobuf.Test/FieldMaskTreeTest.cs                       \
   csharp/src/Google.Protobuf.Test/GeneratedMessageTest.cs                    \
+  csharp/src/Google.Protobuf.Test/GeneratedMessageTest.Proto2.cs             \
   csharp/src/Google.Protobuf.Test/Google.Protobuf.Test.csproj                \
   csharp/src/Google.Protobuf.Test/IssuesTest.cs                              \
   csharp/src/Google.Protobuf.Test/JsonFormatterTest.cs                       \
@@ -117,15 +127,22 @@ csharp_EXTRA_DIST=                                                           \
   csharp/src/Google.Protobuf.Test/SampleMessages.cs                          \
   csharp/src/Google.Protobuf.Test/SampleNaNs.cs                              \
   csharp/src/Google.Protobuf.Test/TestCornerCases.cs                         \
-  csharp/src/Google.Protobuf.Test/TestProtos/ForeignMessagePartial.cs        \
-  csharp/src/Google.Protobuf.Test/TestProtos/MapUnittestProto3.cs            \
-  csharp/src/Google.Protobuf.Test/TestProtos/TestMessagesProto3.cs           \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestCustomOptionsProto3.cs  \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestImportProto3.cs         \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestImportPublicProto3.cs   \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestIssues.cs               \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestProto3.cs               \
-  csharp/src/Google.Protobuf.Test/TestProtos/UnittestWellKnownTypes.cs       \
+  csharp/src/Google.Protobuf.Test.TestProtos/Google.Protobuf.Test.TestProtos.csproj \
+  csharp/src/Google.Protobuf.Test.TestProtos/ForeignMessagePartial.cs           \
+  csharp/src/Google.Protobuf.Test.TestProtos/MapUnittestProto3.cs               \
+  csharp/src/Google.Protobuf.Test.TestProtos/OldExtensions1.cs                  \
+  csharp/src/Google.Protobuf.Test.TestProtos/OldExtensions2.cs                  \
+  csharp/src/Google.Protobuf.Test.TestProtos/TestMessagesProto2.cs              \
+  csharp/src/Google.Protobuf.Test.TestProtos/TestMessagesProto3.cs              \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestCustomOptionsProto3.cs     \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestImportProto3.cs            \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestImportPublicProto3.cs      \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestImportPublic.cs            \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestImport.cs                  \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestIssues.cs                  \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestProto3.cs                  \
+  csharp/src/Google.Protobuf.Test.TestProtos/UnittestWellKnownTypes.cs          \
+  csharp/src/Google.Protobuf.Test.TestProtos/Unittest.cs                        \
   csharp/src/Google.Protobuf.Test/WellKnownTypes/AnyTest.cs                  \
   csharp/src/Google.Protobuf.Test/WellKnownTypes/DurationTest.cs             \
   csharp/src/Google.Protobuf.Test/WellKnownTypes/FieldMaskTest.cs            \

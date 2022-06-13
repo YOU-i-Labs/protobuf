@@ -315,7 +315,7 @@ static std::string CanonicalizePath(std::string path) {
 
 static inline bool ContainsParentReference(const std::string& path) {
   return path == ".." || HasPrefixString(path, "../") ||
-         HasSuffixString(path, "/..") || path.find("/../") != string::npos;
+         HasSuffixString(path, "/..") || path.find("/../") != std::string::npos;
 }
 
 // Maps a file from an old location to a new one.  Typically, old_prefix is

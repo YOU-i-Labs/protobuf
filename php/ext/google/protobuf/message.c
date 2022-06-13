@@ -55,6 +55,8 @@ static  zend_function_entry message_methods[] = {
   PHP_ME(Message, serializeToJsonString, NULL, ZEND_ACC_PUBLIC)
   PHP_ME(Message, mergeFromJsonString, NULL, ZEND_ACC_PUBLIC)
   PHP_ME(Message, mergeFrom, NULL, ZEND_ACC_PUBLIC)
+  PHP_ME(Message, readWrapperValue, NULL, ZEND_ACC_PROTECTED)
+  PHP_ME(Message, writeWrapperValue, NULL, ZEND_ACC_PROTECTED)
   PHP_ME(Message, readOneof, NULL, ZEND_ACC_PROTECTED)
   PHP_ME(Message, writeOneof, NULL, ZEND_ACC_PROTECTED)
   PHP_ME(Message, whichOneof, NULL, ZEND_ACC_PROTECTED)
@@ -178,7 +180,7 @@ static zval* message_get_property_internal(zval* object,
       zend_get_property_info(Z_OBJCE_P(object), Z_STR_P(member), true);
 #endif
   return layout_get(
-      self->descriptor->layout, message_data(self), field,
+      self->descriptor->layout, self, field,
       OBJ_PROP(Z_OBJ_P(object), property_info->offset) TSRMLS_CC);
 }
 
@@ -191,7 +193,7 @@ static void message_get_oneof_property_internal(zval* object, zval* member,
     return;
   }
 
-  layout_get(self->descriptor->layout, message_data(self), field,
+  layout_get(self->descriptor->layout, self, field,
              ZVAL_PTR_TO_CACHED_PTR(return_value) TSRMLS_CC);
 }
 
@@ -253,9 +255,8 @@ void* message_data(MessageHeader* msg) {
 
 void custom_data_init(const zend_class_entry* ce,
                       MessageHeader* intern PHP_PROTO_TSRMLS_DC) {
-  Descriptor* desc = UNBOX_HASHTABLE_VALUE(Descriptor, get_ce_obj(ce));
+  DescriptorInternal* desc = get_ce_desc(ce);
   intern->data = ALLOC_N(uint8_t, desc->layout->size);
-  memset(message_data(intern), 0, desc->layout->size);
   // We wrap first so that everything in the message object is GC-rooted in
   // case a collection happens during object creation in layout_init().
   intern->descriptor = desc;
@@ -273,34 +274,9 @@ void custom_data_init(const zend_class_entry* ce,
     Message_construct(getThis(), array_wrapper);                   \
   }
 
-void build_class_from_descriptor(
-    PHP_PROTO_HASHTABLE_VALUE php_descriptor TSRMLS_DC) {
-  Descriptor* desc = UNBOX_HASHTABLE_VALUE(Descriptor, php_descriptor);
-
-  // Map entries don't have existing php class.
-  if (upb_msgdef_mapentry(desc->msgdef)) {
-    return;
-  }
-
-  zend_class_entry* registered_ce = desc->klass;
-
-  if (desc->layout == NULL) {
-    MessageLayout* layout = create_layout(desc->msgdef);
-    desc->layout = layout;
-  }
-
-  registered_ce->create_object = message_create;
-}
-
 // -----------------------------------------------------------------------------
 // PHP Methods
 // -----------------------------------------------------------------------------
-
-static bool is_wrapper_msg(const upb_msgdef* m) {
-  upb_wellknowntype_t type = upb_msgdef_wellknowntype(m);
-  return type >= UPB_WELLKNOWN_DOUBLEVALUE &&
-         type <= UPB_WELLKNOWN_BOOLVALUE;
-}
 
 static void append_wrapper_message(
     zend_class_entry* subklass, RepeatedField* intern, zval* value TSRMLS_DC) {
@@ -351,10 +327,18 @@ void Message_construct(zval* msg, zval* array_wrapper) {
   TSRMLS_FETCH();
   zend_class_entry* ce = Z_OBJCE_P(msg);
   MessageHeader* intern = NULL;
-  if (EXPECTED(class_added(ce))) {
-    intern = UNBOX(MessageHeader, msg);
-    custom_data_init(ce, intern PHP_PROTO_TSRMLS_CC);
+
+  if (!class_added(ce)) {
+#if PHP_MAJOR_VERSION < 7
+    DescriptorInternal* desc = get_class_desc(ce->name);
+#else
+    DescriptorInternal* desc = get_class_desc(ZSTR_VAL(ce->name));
+#endif
+    register_class(desc, false TSRMLS_CC);
   }
+
+  intern = UNBOX(MessageHeader, msg);
+  custom_data_init(ce, intern PHP_PROTO_TSRMLS_CC);
 
   if (array_wrapper == NULL) {
     return;
@@ -400,8 +384,8 @@ void Message_construct(zval* msg, zval* array_wrapper) {
         is_wrapper = is_wrapper_msg(submsgdef);
 
         if (is_wrapper) {
-          PHP_PROTO_HASHTABLE_VALUE subdesc_php = get_def_obj(submsgdef);
-          Descriptor* subdesc = UNBOX_HASHTABLE_VALUE(Descriptor, subdesc_php);
+          DescriptorInternal* subdesc = get_msgdef_desc(submsgdef);
+          register_class(subdesc, false TSRMLS_CC);
           subklass = subdesc->klass;
         }
       }
@@ -440,8 +424,8 @@ void Message_construct(zval* msg, zval* array_wrapper) {
         is_wrapper = is_wrapper_msg(submsgdef);
 
         if (is_wrapper) {
-          PHP_PROTO_HASHTABLE_VALUE subdesc_php = get_def_obj(submsgdef);
-          Descriptor* subdesc = UNBOX_HASHTABLE_VALUE(Descriptor, subdesc_php);
+          DescriptorInternal* subdesc = get_msgdef_desc(submsgdef);
+          register_class(subdesc, false TSRMLS_CC);
           subklass = subdesc->klass;
         }
       }
@@ -464,8 +448,8 @@ void Message_construct(zval* msg, zval* array_wrapper) {
       }
     } else if (upb_fielddef_issubmsg(field)) {
       const upb_msgdef* submsgdef = upb_fielddef_msgsubdef(field);
-      PHP_PROTO_HASHTABLE_VALUE desc_php = get_def_obj(submsgdef);
-      Descriptor* desc = UNBOX_HASHTABLE_VALUE(Descriptor, desc_php);
+      DescriptorInternal* desc = get_msgdef_desc(submsgdef);
+      register_class(desc, false TSRMLS_CC);
 
       CACHED_VALUE* cached = NULL;
       if (upb_fielddef_containingoneof(field)) {
@@ -535,7 +519,8 @@ PHP_METHOD(Message, __construct) {
 
 PHP_METHOD(Message, clear) {
   MessageHeader* msg = UNBOX(MessageHeader, getThis());
-  Descriptor* desc = msg->descriptor;
+  DescriptorInternal* desc = msg->descriptor;
+  register_class(desc, false TSRMLS_CC);
   zend_class_entry* ce = desc->klass;
 
   zend_object_std_dtor(&msg->std TSRMLS_CC);
@@ -562,6 +547,133 @@ PHP_METHOD(Message, mergeFrom) {
   layout_merge(from->descriptor->layout, from, to TSRMLS_CC);
 }
 
+PHP_METHOD(Message, readWrapperValue) {
+  char* member;
+  PHP_PROTO_SIZE length;
+  if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &member,
+                            &length) == FAILURE) {
+    return;
+  }
+
+  MessageHeader* msg = UNBOX(MessageHeader, getThis());
+  const upb_fielddef* field =
+      upb_msgdef_ntofz(msg->descriptor->msgdef, member);
+
+  if (upb_fielddef_containingoneof(field)) {
+    uint32_t* oneof_case =
+        slot_oneof_case(msg->descriptor->layout, message_data(msg), field);
+    if (*oneof_case != upb_fielddef_number(field)) {
+      RETURN_NULL();
+    }
+  }
+
+  zval* cached_zval =
+      CACHED_PTR_TO_ZVAL_PTR(find_zval_property(msg, field));
+
+  if (Z_TYPE_P(cached_zval) == IS_NULL) {
+    RETURN_NULL();
+  }
+
+  if (Z_TYPE_P(cached_zval) == IS_OBJECT) {
+    const upb_msgdef* submsgdef = upb_fielddef_msgsubdef(field);
+    const upb_fielddef* value_field = upb_msgdef_itof(submsgdef, 1);
+    MessageHeader* submsg = UNBOX(MessageHeader, cached_zval);
+    CACHED_VALUE* cached_value = find_zval_property(submsg, value_field);
+    layout_get(submsg->descriptor->layout, submsg, value_field,
+               cached_value TSRMLS_CC);
+    RETURN_ZVAL(CACHED_PTR_TO_ZVAL_PTR(cached_value), 1, 0);
+  } else {
+    RETURN_ZVAL(cached_zval, 1, 0);
+  }
+}
+
+PHP_METHOD(Message, writeWrapperValue) {
+  char* member;
+  PHP_PROTO_SIZE length;
+  zval* value;
+  if (zend_parse_parameters(
+      ZEND_NUM_ARGS() TSRMLS_CC, "sz", &member, &length, &value) ==
+      FAILURE) {
+    return;
+  }
+
+  MessageHeader* msg = UNBOX(MessageHeader, getThis());
+  const upb_fielddef* field = upb_msgdef_ntofz(msg->descriptor->msgdef, member);
+
+  zval* cached_zval =
+      CACHED_PTR_TO_ZVAL_PTR(find_zval_property(msg, field));
+
+  if (Z_TYPE_P(value) == IS_NULL) {
+    MessageHeader* msg = UNBOX(MessageHeader, getThis());
+    layout_set(msg->descriptor->layout, msg,
+               field, value TSRMLS_CC);
+    return;
+  }
+
+  {
+    // Type Checking
+    const upb_msgdef* submsgdef = upb_fielddef_msgsubdef(field);
+    const upb_fielddef* value_field = upb_msgdef_itof(submsgdef, 1);
+    upb_fieldtype_t type = upb_fielddef_type(value_field);
+    switch(type) {
+      case UPB_TYPE_STRING:
+      case UPB_TYPE_BYTES: {
+        if (!protobuf_convert_to_string(value)) {
+          return;
+        }
+        if (type == UPB_TYPE_STRING &&
+            !is_structurally_valid_utf8(Z_STRVAL_P(value), Z_STRLEN_P(value))) {
+          zend_error(E_USER_ERROR, "Given string is not UTF8 encoded.");
+          return;
+        }
+      }
+      break;
+#define CASE_TYPE(upb_type, type, c_type)                    \
+  case UPB_TYPE_##upb_type: {                                \
+    c_type type##_value;                                     \
+    if (!protobuf_convert_to_##type(value, &type##_value)) { \
+      return;                                                \
+    }                                                        \
+    break;                                                   \
+  }
+      CASE_TYPE(INT32,  int32,  int32_t)
+      CASE_TYPE(UINT32, uint32, uint32_t)
+      CASE_TYPE(ENUM,   int32,  int32_t)
+      CASE_TYPE(INT64,  int64,  int64_t)
+      CASE_TYPE(UINT64, uint64, uint64_t)
+      CASE_TYPE(FLOAT,  float,  float)
+      CASE_TYPE(DOUBLE, double, double)
+      CASE_TYPE(BOOL,   bool,   int8_t)
+
+#undef CASE_TYPE
+    }
+  }
+
+  if (upb_fielddef_containingoneof(field)) {
+    uint32_t* oneof_case =
+        slot_oneof_case(msg->descriptor->layout, message_data(msg), field);
+    if (*oneof_case != upb_fielddef_number(field)) {
+      zval null_value;
+      ZVAL_NULL(&null_value);
+      layout_set(msg->descriptor->layout, msg, field, &null_value TSRMLS_CC);
+      cached_zval = CACHED_PTR_TO_ZVAL_PTR(find_zval_property(msg, field));
+      ZVAL_ZVAL(cached_zval, value, 1, 0);
+      return;
+    }
+  }
+
+  if (Z_TYPE_P(cached_zval) == IS_OBJECT) {
+    const upb_msgdef* submsgdef = upb_fielddef_msgsubdef(field);
+    const upb_fielddef* value_field = upb_msgdef_itof(submsgdef, 1);
+    MessageHeader* submsg = UNBOX(MessageHeader, cached_zval);
+    CACHED_VALUE* cached_value = find_zval_property(submsg, value_field);
+    layout_set(submsg->descriptor->layout, submsg,
+               value_field, value TSRMLS_CC);
+  } else {
+    ZVAL_ZVAL(cached_zval, value, 1, 0);
+  }
+}
+
 PHP_METHOD(Message, readOneof) {
   PHP_PROTO_LONG index;
 
@@ -575,9 +687,9 @@ PHP_METHOD(Message, readOneof) {
   const upb_fielddef* field = upb_msgdef_itof(msg->descriptor->msgdef, index);
 
   // Unlike singular fields, oneof fields share cached property. So we cannot
-  // let lay_get modify the cached property. Instead, we pass in the return
+  // let layout_get modify the cached property. Instead, we pass in the return
   // value directly.
-  layout_get(msg->descriptor->layout, message_data(msg), field,
+  layout_get(msg->descriptor->layout, msg, field,
              ZVAL_PTR_TO_CACHED_PTR(return_value) TSRMLS_CC);
 }
 
@@ -1414,14 +1526,14 @@ PHP_METHOD(Any, unpack) {
   }
 
   const char* fully_qualified_name = type_url + url_prefix_len;
-  PHP_PROTO_HASHTABLE_VALUE desc_php = get_proto_obj(fully_qualified_name);
-  if (desc_php == NULL) {
+  DescriptorInternal* desc = get_proto_desc(fully_qualified_name);
+  if (desc == NULL) {
     zend_throw_exception(
         NULL, "Specified message in any hasn't been added to descriptor pool",
         0 TSRMLS_CC);
     return;
   }
-  Descriptor* desc = UNBOX_HASHTABLE_VALUE(Descriptor, desc_php);
+  register_class(desc, false TSRMLS_CC);
   zend_class_entry* klass = desc->klass;
   ZVAL_OBJ(return_value, klass->create_object(klass TSRMLS_CC));
   MessageHeader* msg = UNBOX(MessageHeader, return_value);
@@ -1467,8 +1579,7 @@ PHP_METHOD(Any, pack) {
   PHP_PROTO_FAKE_SCOPE_END;
 
   // Set type url.
-  Descriptor* desc =
-      UNBOX_HASHTABLE_VALUE(Descriptor, get_ce_obj(Z_OBJCE_P(val)));
+  DescriptorInternal* desc = get_ce_desc(Z_OBJCE_P(val));
   const char* fully_qualified_name = upb_msgdef_fullname(desc->msgdef);
   size_t type_url_len =
       strlen(TYPE_URL_PREFIX) + strlen(fully_qualified_name) + 1;
@@ -1495,14 +1606,12 @@ PHP_METHOD(Any, is) {
     return;
   }
 
-  PHP_PROTO_HASHTABLE_VALUE desc_php = get_ce_obj(klass);
-  if (desc_php == NULL) {
+  DescriptorInternal* desc = get_ce_desc(klass);
+  if (desc == NULL) {
     RETURN_BOOL(false);
   }
 
   // Create corresponded type url.
-  Descriptor* desc =
-      UNBOX_HASHTABLE_VALUE(Descriptor, get_ce_obj(klass));
   const char* fully_qualified_name = upb_msgdef_fullname(desc->msgdef);
   size_t type_url_len =
       strlen(TYPE_URL_PREFIX) + strlen(fully_qualified_name) + 1;

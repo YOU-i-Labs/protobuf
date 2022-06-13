@@ -62,7 +62,7 @@ build_cpp_distcheck() {
 
   # List all files that should be included in the distribution package.
   git ls-files | grep "^\(java\|python\|objectivec\|csharp\|js\|ruby\|php\|cmake\|examples\|src/google/protobuf/.*\.proto\)" |\
-    grep -v ".gitignore" | grep -v "java/compatibility_tests" |\
+    grep -v ".gitignore" | grep -v "java/compatibility_tests" | grep -v "java/lite/proguard.pgcfg" |\
     grep -v "python/compatibility_tests" | grep -v "csharp/compatibility_tests" > dist.lst
   # Unzip the dist tar file.
   DIST=`ls *.tar.gz`
@@ -213,6 +213,9 @@ build_java() {
 build_java_with_conformance_tests() {
   # Java build needs `protoc`.
   internal_build_cpp
+  # This local installation avoids the problem caused by a new version not yet in Maven Central
+  cd java/bom && $MVN install
+  cd ../..
   cd java && $MVN test && $MVN install
   cd util && $MVN package assembly:single
   cd ../..
@@ -252,6 +255,9 @@ build_java_linkage_monitor() {
   # Example: "3.9.0" (without 'rc')
   VERSION=`grep '<version>' pom.xml |head -1 |perl -nle 'print $1 if m/<version>(\d+\.\d+.\d+)/'`
   cd bom
+  # This local installation avoids the problem caused by a new version not yet in Maven Central
+  # https://github.com/protocolbuffers/protobuf/issues/6627
+  $MVN install
   $MVN versions:set -DnewVersion=${VERSION}-SNAPSHOT
   cd ..
   $MVN versions:set -DnewVersion=${VERSION}-SNAPSHOT

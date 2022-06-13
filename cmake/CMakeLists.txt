@@ -208,7 +208,7 @@ if (MSVC)
   configure_file(extract_includes.bat.in extract_includes.bat)
 
   # Suppress linker warnings about files with no symbols defined.
-  set(CMAKE_STATIC_LINKER_FLAGS /ignore:4221)
+  set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} /ignore:4221")
 
   # Force x64 for UWP
   if (UWP)
