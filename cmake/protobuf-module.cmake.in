@@ -110,16 +110,6 @@ function(_protobuf_find_libraries name filename)
   endif()
 endfunction()
 
-# Internal function: find threads library
-function(_protobuf_find_threads)
-    set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
-    find_package(Threads)
-    if(Threads_FOUND)
-        list(APPEND PROTOBUF_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
-        set(PROTOBUF_LIBRARIES "${PROTOBUF_LIBRARIES}" PARENT_SCOPE)
-    endif()
-endfunction()
-
 #
 # Main.
 #
