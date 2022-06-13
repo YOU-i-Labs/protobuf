@@ -156,6 +156,11 @@ void FieldGeneratorBase::GenerateCodecCode(io::Printer* printer) {
     // Could fail if we get called here though...
 }
 
+void FieldGeneratorBase::GenerateExtensionCode(io::Printer* printer) {
+  // No-op: only message fields, enum fields, primitives, 
+  // and repeated fields need this default is to not generate any code
+}
+
 void FieldGeneratorBase::AddDeprecatedFlag(io::Printer* printer) {
   if (descriptor_->options().deprecated()) {
     printer->Print("[global::System.ObsoleteAttribute]\n");
