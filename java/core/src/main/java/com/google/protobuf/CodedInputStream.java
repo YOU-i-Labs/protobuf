@@ -61,14 +61,14 @@ import java.util.List;
  */
 public abstract class CodedInputStream {
   private static final int DEFAULT_BUFFER_SIZE = 4096;
-  private static final int DEFAULT_RECURSION_LIMIT = 100;
   // Integer.MAX_VALUE == 0x7FFFFFF == INT_MAX from limits.h
   private static final int DEFAULT_SIZE_LIMIT = Integer.MAX_VALUE;
+  private static volatile int defaultRecursionLimit = 100;
 
   /** Visible for subclasses. See setRecursionLimit() */
   int recursionDepth;
 
-  int recursionLimit = DEFAULT_RECURSION_LIMIT;
+  int recursionLimit = defaultRecursionLimit;
 
   /** Visible for subclasses. See setSizeLimit() */
   int sizeLimit = DEFAULT_SIZE_LIMIT;
@@ -195,6 +195,11 @@ public abstract class CodedInputStream {
     return newInstance(buffer, 0, buffer.length, true);
   }
 
+  public void checkRecursionLimit() throws InvalidProtocolBufferException {
+    if (recursionDepth >= recursionLimit) {
+      throw InvalidProtocolBufferException.recursionLimitExceeded();
+    }
+  }
   /** Disable construction/inheritance outside of this class. */
   private CodedInputStream() {}
 
@@ -827,9 +832,7 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -843,9 +846,7 @@ public abstract class CodedInputStream {
         final Parser<T> parser,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -865,14 +866,15 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder, final ExtensionRegistryLite extensionRegistry)
         throws IOException {
       final int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
     }
 
@@ -881,14 +883,15 @@ public abstract class CodedInputStream {
     public <T extends MessageLite> T readMessage(
         final Parser<T> parser, final ExtensionRegistryLite extensionRegistry) throws IOException {
       int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
       return result;
     }
@@ -1549,9 +1552,7 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -1565,9 +1566,7 @@ public abstract class CodedInputStream {
         final Parser<T> parser,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -1587,14 +1586,15 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder, final ExtensionRegistryLite extensionRegistry)
         throws IOException {
       final int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
     }
 
@@ -1603,14 +1603,15 @@ public abstract class CodedInputStream {
     public <T extends MessageLite> T readMessage(
         final Parser<T> parser, final ExtensionRegistryLite extensionRegistry) throws IOException {
       int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
       return result;
     }
@@ -2346,9 +2347,7 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -2362,9 +2361,7 @@ public abstract class CodedInputStream {
         final Parser<T> parser,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -2384,14 +2381,15 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder, final ExtensionRegistryLite extensionRegistry)
         throws IOException {
       final int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
     }
 
@@ -2400,14 +2398,15 @@ public abstract class CodedInputStream {
     public <T extends MessageLite> T readMessage(
         final Parser<T> parser, final ExtensionRegistryLite extensionRegistry) throws IOException {
       int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
       return result;
     }
@@ -3443,9 +3442,7 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -3459,9 +3456,7 @@ public abstract class CodedInputStream {
         final Parser<T> parser,
         final ExtensionRegistryLite extensionRegistry)
         throws IOException {
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
@@ -3481,14 +3476,15 @@ public abstract class CodedInputStream {
         final MessageLite.Builder builder, final ExtensionRegistryLite extensionRegistry)
         throws IOException {
       final int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       builder.mergeFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
     }
 
@@ -3497,14 +3493,15 @@ public abstract class CodedInputStream {
     public <T extends MessageLite> T readMessage(
         final Parser<T> parser, final ExtensionRegistryLite extensionRegistry) throws IOException {
       int length = readRawVarint32();
-      if (recursionDepth >= recursionLimit) {
-        throw InvalidProtocolBufferException.recursionLimitExceeded();
-      }
+      checkRecursionLimit();
       final int oldLimit = pushLimit(length);
       ++recursionDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
       checkLastTagWas(0);
       --recursionDepth;
+      if (getBytesUntilLimit() != 0) {
+        throw InvalidProtocolBufferException.truncatedMessage();
+      }
       popLimit(oldLimit);
       return result;
     }
