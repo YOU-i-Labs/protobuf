@@ -190,7 +190,7 @@ public final class Descriptors {
         name = packageName + '.' + name;
       }
       final GenericDescriptor result = pool.findSymbol(name);
-      if (result != null && result instanceof Descriptor && result.getFile() == this) {
+      if (result instanceof Descriptor && result.getFile() == this) {
         return (Descriptor) result;
       } else {
         return null;
@@ -214,7 +214,7 @@ public final class Descriptors {
         name = packageName + '.' + name;
       }
       final GenericDescriptor result = pool.findSymbol(name);
-      if (result != null && result instanceof EnumDescriptor && result.getFile() == this) {
+      if (result instanceof EnumDescriptor && result.getFile() == this) {
         return (EnumDescriptor) result;
       } else {
         return null;
@@ -238,7 +238,7 @@ public final class Descriptors {
         name = packageName + '.' + name;
       }
       final GenericDescriptor result = pool.findSymbol(name);
-      if (result != null && result instanceof ServiceDescriptor && result.getFile() == this) {
+      if (result instanceof ServiceDescriptor && result.getFile() == this) {
         return (ServiceDescriptor) result;
       } else {
         return null;
@@ -260,7 +260,7 @@ public final class Descriptors {
         name = packageName + '.' + name;
       }
       final GenericDescriptor result = pool.findSymbol(name);
-      if (result != null && result instanceof FieldDescriptor && result.getFile() == this) {
+      if (result instanceof FieldDescriptor && result.getFile() == this) {
         return (FieldDescriptor) result;
       } else {
         return null;
@@ -338,7 +338,7 @@ public final class Descriptors {
         final Class<?> descriptorOuterClass,
         final String[] dependencyClassNames,
         final String[] dependencyFileNames) {
-      List<FileDescriptor> descriptors = new ArrayList<FileDescriptor>();
+      List<FileDescriptor> descriptors = new ArrayList<>();
       for (int i = 0; i < dependencyClassNames.length; i++) {
         try {
           Class<?> clazz = descriptorOuterClass.getClassLoader().loadClass(dependencyClassNames[i]);
@@ -507,11 +507,11 @@ public final class Descriptors {
       this.pool = pool;
       this.proto = proto;
       this.dependencies = dependencies.clone();
-      HashMap<String, FileDescriptor> nameToFileMap = new HashMap<String, FileDescriptor>();
+      HashMap<String, FileDescriptor> nameToFileMap = new HashMap<>();
       for (FileDescriptor file : dependencies) {
         nameToFileMap.put(file.getName(), file);
       }
-      List<FileDescriptor> publicDependencies = new ArrayList<FileDescriptor>();
+      List<FileDescriptor> publicDependencies = new ArrayList<>();
       for (int i = 0; i < proto.getPublicDependencyCount(); i++) {
         int index = proto.getPublicDependency(i);
         if (index < 0 || index >= proto.getDependencyCount()) {
@@ -724,12 +724,12 @@ public final class Descriptors {
 
     /** Determines if the given field number is an extension. */
     public boolean isExtensionNumber(final int number) {
-      for (final DescriptorProto.ExtensionRange range : proto.getExtensionRangeList()) {
-        if (range.getStart() <= number && number < range.getEnd()) {
-          return true;
-        }
+      int index = Arrays.binarySearch(extensionRangeLowerBounds, number);
+      if (index < 0) {
+        index = ~index - 1;
       }
-      return false;
+      // extensionRangeLowerBounds[index] is the biggest value <= number
+      return index >= 0 && number < extensionRangeUpperBounds[index];
     }
 
     /** Determines if the given field number is reserved. */
@@ -758,18 +758,21 @@ public final class Descriptors {
      * y" ranges declared on it.
      */
     public boolean isExtendable() {
-      return proto.getExtensionRangeList().size() != 0;
+      return !proto.getExtensionRangeList().isEmpty();
     }
 
     /**
      * Finds a field by name.
      *
-     * @param name The unqualified name of the field (e.g. "foo").
+     * @param name The unqualified name of the field (e.g. "foo"). For protocol buffer messages that
+     *     follow <a
+     *     href=https://developers.google.com/protocol-buffers/docs/style#message_and_field_names>Google's
+     *     guidance on naming</a> this will be a snake case string, such as <pre>song_name</pre>.
      * @return The field's descriptor, or {@code null} if not found.
      */
     public FieldDescriptor findFieldByName(final String name) {
       final GenericDescriptor result = file.pool.findSymbol(fullName + '.' + name);
-      if (result != null && result instanceof FieldDescriptor) {
+      if (result instanceof FieldDescriptor) {
         return (FieldDescriptor) result;
       } else {
         return null;
@@ -794,7 +797,7 @@ public final class Descriptors {
      */
     public Descriptor findNestedTypeByName(final String name) {
       final GenericDescriptor result = file.pool.findSymbol(fullName + '.' + name);
-      if (result != null && result instanceof Descriptor) {
+      if (result instanceof Descriptor) {
         return (Descriptor) result;
       } else {
         return null;
@@ -809,7 +812,7 @@ public final class Descriptors {
      */
     public EnumDescriptor findEnumTypeByName(final String name) {
       final GenericDescriptor result = file.pool.findSymbol(fullName + '.' + name);
-      if (result != null && result instanceof EnumDescriptor) {
+      if (result instanceof EnumDescriptor) {
         return (EnumDescriptor) result;
       } else {
         return null;
@@ -827,6 +830,9 @@ public final class Descriptors {
     private final FieldDescriptor[] extensions;
     private final OneofDescriptor[] oneofs;
     private final int realOneofCount;
+
+    private final int[] extensionRangeLowerBounds;
+    private final int[] extensionRangeUpperBounds;
 
     // Used to create a placeholder when the type cannot be found.
     Descriptor(final String fullname) throws DescriptorValidationException {
@@ -856,6 +862,9 @@ public final class Descriptors {
 
       // Create a placeholder FileDescriptor to hold this message.
       this.file = new FileDescriptor(packageName, this);
+
+      extensionRangeLowerBounds = new int[] {1};
+      extensionRangeUpperBounds = new int[] {536870912};
     }
 
     private Descriptor(
@@ -919,6 +928,20 @@ public final class Descriptors {
       this.realOneofCount = this.oneofs.length - syntheticOneofCount;
 
       file.pool.addSymbol(this);
+
+      // NOTE: The defined extension ranges are guaranteed to be disjoint.
+      extensionRangeLowerBounds = new int[proto.getExtensionRangeCount()];
+      extensionRangeUpperBounds = new int[proto.getExtensionRangeCount()];
+      int i = 0;
+      for (final DescriptorProto.ExtensionRange range : proto.getExtensionRangeList()) {
+        extensionRangeLowerBounds[i] = range.getStart();
+        extensionRangeUpperBounds[i] = range.getEnd();
+        i++;
+      }
+      // Since the ranges are disjoint, sorting these independently must still produce the correct
+      // order.
+      Arrays.sort(extensionRangeLowerBounds);
+      Arrays.sort(extensionRangeUpperBounds);
     }
 
     /** Look up and cross-link all field types, etc. */
@@ -1084,7 +1107,7 @@ public final class Descriptors {
 
     /**
      * Does this field have the {@code [packed = true]} option or is this field packable in proto3
-     * and not explicitly setted to unpacked?
+     * and not explicitly set to unpacked?
      */
     @Override
     public boolean isPacked() {
@@ -1698,7 +1721,7 @@ public final class Descriptors {
      */
     public EnumValueDescriptor findValueByName(final String name) {
       final GenericDescriptor result = file.pool.findSymbol(fullName + '.' + name);
-      if (result != null && result instanceof EnumValueDescriptor) {
+      if (result instanceof EnumValueDescriptor) {
         return (EnumValueDescriptor) result;
       } else {
         return null;
@@ -1782,7 +1805,7 @@ public final class Descriptors {
     private final Descriptor containingType;
     private EnumValueDescriptor[] values;
     private final WeakHashMap<Integer, WeakReference<EnumValueDescriptor>> unknownValues =
-        new WeakHashMap<Integer, WeakReference<EnumValueDescriptor>>();
+        new WeakHashMap<>();
 
     private EnumDescriptor(
         final EnumDescriptorProto proto,
@@ -1988,7 +2011,7 @@ public final class Descriptors {
      */
     public MethodDescriptor findMethodByName(final String name) {
       final GenericDescriptor result = file.pool.findSymbol(fullName + '.' + name);
-      if (result != null && result instanceof MethodDescriptor) {
+      if (result instanceof MethodDescriptor) {
         return (MethodDescriptor) result;
       } else {
         return null;
@@ -2262,12 +2285,12 @@ public final class Descriptors {
     }
 
     DescriptorPool(final FileDescriptor[] dependencies, boolean allowUnknownDependencies) {
-      this.dependencies = new HashSet<FileDescriptor>();
+      this.dependencies = new HashSet<>();
       this.allowUnknownDependencies = allowUnknownDependencies;
 
-      for (int i = 0; i < dependencies.length; i++) {
-        this.dependencies.add(dependencies[i]);
-        importPublicDependencies(dependencies[i]);
+      for (Descriptors.FileDescriptor dependency : dependencies) {
+        this.dependencies.add(dependency);
+        importPublicDependencies(dependency);
       }
 
       for (final FileDescriptor dependency : this.dependencies) {
@@ -2294,12 +2317,9 @@ public final class Descriptors {
     private final Set<FileDescriptor> dependencies;
     private boolean allowUnknownDependencies;
 
-    private final Map<String, GenericDescriptor> descriptorsByName =
-        new HashMap<String, GenericDescriptor>();
-    private final Map<DescriptorIntPair, FieldDescriptor> fieldsByNumber =
-        new HashMap<DescriptorIntPair, FieldDescriptor>();
-    private final Map<DescriptorIntPair, EnumValueDescriptor> enumValuesByNumber =
-        new HashMap<DescriptorIntPair, EnumValueDescriptor>();
+    private final Map<String, GenericDescriptor> descriptorsByName = new HashMap<>();
+    private final Map<DescriptorIntPair, FieldDescriptor> fieldsByNumber = new HashMap<>();
+    private final Map<DescriptorIntPair, EnumValueDescriptor> enumValuesByNumber = new HashMap<>();
 
     /** Find a generic descriptor by fully-qualified name. */
     GenericDescriptor findSymbol(final String fullName) {

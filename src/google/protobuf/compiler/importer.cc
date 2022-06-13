@@ -494,6 +494,22 @@ io::ZeroCopyInputStream* DiskSourceTree::OpenVirtualFile(
 
 io::ZeroCopyInputStream* DiskSourceTree::OpenDiskFile(
     const std::string& filename) {
+  struct stat sb;
+  int ret = 0;
+  do {
+    ret = stat(filename.c_str(), &sb);
+  } while (ret != 0 && errno == EINTR);
+#if defined(_WIN32)
+  if (ret == 0 && sb.st_mode & S_IFDIR) {
+    last_error_message_ = "Input file is a directory.";
+    return NULL;
+  }
+#else
+  if (ret == 0 && S_ISDIR(sb.st_mode)) {
+    last_error_message_ = "Input file is a directory.";
+    return NULL;
+  }
+#endif
   int file_descriptor;
   do {
     file_descriptor = open(filename.c_str(), O_RDONLY);

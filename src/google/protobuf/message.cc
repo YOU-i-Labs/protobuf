@@ -162,6 +162,10 @@ size_t Message::SpaceUsedLong() const {
   return GetReflection()->SpaceUsedLong(*this);
 }
 
+uint64 Message::GetInvariantPerBuild(uint64 salt) {
+  return salt;
+}
+
 // =============================================================================
 // MessageFactory
 
@@ -171,10 +175,10 @@ namespace {
 
 
 #define HASH_MAP std::unordered_map
-#define HASH_FXN hash
+#define STR_HASH_FXN hash<::google::protobuf::StringPiece>
 
 
-class GeneratedMessageFactory : public MessageFactory {
+class GeneratedMessageFactory final : public MessageFactory {
  public:
   static GeneratedMessageFactory* singleton();
 
@@ -186,8 +190,8 @@ class GeneratedMessageFactory : public MessageFactory {
 
  private:
   // Only written at static init time, so does not require locking.
-  HASH_MAP<const char*, const google::protobuf::internal::DescriptorTable*,
-           HASH_FXN<const char*>, streq>
+  HASH_MAP<StringPiece, const google::protobuf::internal::DescriptorTable*,
+           STR_HASH_FXN>
       file_map_;
 
   internal::WrappedMutex mutex_;
@@ -342,20 +346,12 @@ template <>
 PROTOBUF_NOINLINE
 #endif
     Arena*
-    GenericTypeHandler<Message>::GetArena(Message* value) {
-  return value->GetArena();
-}
-template <>
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-// Note: force noinline to workaround MSVC compiler bug with /Zc:inline, issue
-// #240
-PROTOBUF_NOINLINE
-#endif
-    void*
-    GenericTypeHandler<Message>::GetMaybeArenaPointer(Message* value) {
-  return value->GetMaybeArenaPointer();
+    GenericTypeHandler<Message>::GetOwningArena(Message* value) {
+  return value->GetOwningArena();
 }
 }  // namespace internal
 
 }  // namespace protobuf
 }  // namespace google
+
+#include <google/protobuf/port_undef.inc>
