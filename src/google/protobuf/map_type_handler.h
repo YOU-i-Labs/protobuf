@@ -155,13 +155,13 @@ class MapTypeHandler<WireFormatLite::TYPE_MESSAGE, Type> {
   typedef typename MapWireFieldTypeTraits<WireFormatLite::TYPE_MESSAGE,
                                           Type>::TypeOnMemory TypeOnMemory;
   // Corresponding wire type for field type.
-  static const WireFormatLite::WireType kWireType =
+  static constexpr WireFormatLite::WireType kWireType =
       MapWireFieldTypeTraits<WireFormatLite::TYPE_MESSAGE, Type>::kWireType;
   // Whether wire type is for message.
-  static const bool kIsMessage =
+  static constexpr bool kIsMessage =
       MapWireFieldTypeTraits<WireFormatLite::TYPE_MESSAGE, Type>::kIsMessage;
   // Whether wire type is for enum.
-  static const bool kIsEnum =
+  static constexpr bool kIsEnum =
       MapWireFieldTypeTraits<WireFormatLite::TYPE_MESSAGE, Type>::kIsEnum;
 
   // Functions used in parsing and serialization. ===================
@@ -467,11 +467,11 @@ inline const char* ReadSINT32(const char* ptr, int32* value) {
 }
 template <typename E>
 inline const char* ReadENUM(const char* ptr, E* value) {
-  *value = static_cast<E>(ReadVarint(&ptr));
+  *value = static_cast<E>(ReadVarint32(&ptr));
   return ptr;
 }
 inline const char* ReadBOOL(const char* ptr, bool* value) {
-  *value = static_cast<bool>(ReadVarint(&ptr));
+  *value = static_cast<bool>(ReadVarint32(&ptr));
   return ptr;
 }
 

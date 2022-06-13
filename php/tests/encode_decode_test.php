@@ -884,6 +884,11 @@ class EncodeDecodeTest extends TestBase
         $m->mergeFromJsonString("{\"unknown\":{\"a\":1, \"b\":1},
                                 \"optionalInt32\":1}", true);
         $this->assertSame(1, $m->getOptionalInt32());
+
+        // Test unknown enum value
+        $m = new TestMessage();
+        $m->mergeFromJsonString("{\"optionalEnum\":\"UNKNOWN\"}", true);
+        $this->assertSame(0, $m->getOptionalEnum());
     }
 
     public function testJsonEncode()
@@ -1162,6 +1167,18 @@ class EncodeDecodeTest extends TestBase
             "{\"@type\":\"type.googleapis.com/google.protobuf.Timestamp\"," .
             "\"value\":\"2000-01-01T00:00:00.123456789Z\"}",
             $m->serializeToJsonString());
+    }
+
+    public function testEncodeAnyWithDefaultWrapperMessagePacked()
+    {
+        $any = new Any();
+        $any->pack(new TestInt32Value([
+            'field' => new Int32Value(['value' => 0]),
+        ]));
+        $this->assertSame(
+            "{\"@type\":\"type.googleapis.com/foo.TestInt32Value\"," .
+            "\"field\":0}",
+            $any->serializeToJsonString());
     }
 
     public function testDecodeTopLevelFieldMask()

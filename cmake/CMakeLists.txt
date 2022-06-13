@@ -35,6 +35,13 @@ if ("X${CMAKE_SYSTEM_PROCESSOR}" STREQUAL Xmipsel)
     add_definitions(-O2)
 endif()
 
+# The Intel compiler isn't able to deal with noinline member functions of
+# template classses defined in headers.  As such it spams the output with
+#   warning #2196: routine is both "inline" and "noinline"
+# This silences that warning.
+if (CMAKE_CXX_COMPILER_ID MATCHES Intel)
+  string(APPEND CMAKE_CXX_FLAGS " -diag-disable=2196")
+endif()
 
 # Options
 option(protobuf_BUILD_TESTS "Build tests" ON)
