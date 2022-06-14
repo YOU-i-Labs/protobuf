@@ -179,7 +179,7 @@ if (NOT MSVC AND NOT PS4)
     set(protobuf_LINK_LIBATOMIC true)
   endif (NOT protobuf_HAVE_BUILTIN_ATOMICS)
   set(CMAKE_REQUIRED_FLAGS ${OLD_CMAKE_REQUIRED_FLAGS})
-endif (NOT MSVC)
+endif (NOT MSVC AND NOT PS4)
 
 if (protobuf_BUILD_SHARED_LIBS)
   set(protobuf_SHARED_OR_STATIC "SHARED")
