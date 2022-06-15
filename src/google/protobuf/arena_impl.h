@@ -487,7 +487,11 @@ class PROTOBUF_EXPORT ThreadSafeArena {
 #ifdef _MSC_VER
 #pragma warning(disable : 4324)
 #endif
+#if defined(__ORBIS__) || defined(__PROSPERO__)
+  struct alignas(32) ThreadCache {
+#else
   struct alignas(64) ThreadCache {
+#endif
 #if defined(GOOGLE_PROTOBUF_NO_THREADLOCAL)
     // If we are using the ThreadLocalStorage class to store the ThreadCache,
     // then the ThreadCache's default constructor has to be responsible for
