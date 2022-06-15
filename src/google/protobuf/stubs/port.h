@@ -57,7 +57,9 @@
 #pragma runtime_checks("c", off)
 #endif
 #else
-#if defined(__APPLE__) || defined(__native_client__) || defined(__ORBIS__) || defined(__PROSPERO__)
+#if defined(__APPLE__) || defined(__ORBIS__) || defined(__PROSPERO__)
+#include <machine/endian.h>  // __BYTE_ORDER
+#elif defined(__native_client__) && defined(__clang__)
 #include <machine/endian.h>  // __BYTE_ORDER
 #elif defined(__FreeBSD__)
 #include <sys/endian.h>  // __BYTE_ORDER
