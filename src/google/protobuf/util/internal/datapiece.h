@@ -41,6 +41,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -192,7 +193,7 @@ class PROTOBUF_EXPORT DataPiece {
   // Data type for this piece of data.
   Type type_;
 
-  typedef ::google::protobuf::internal::StringPiecePod StringPiecePod;
+  typedef ::yi::google::protobuf::internal::StringPiecePod StringPiecePod;
 
   // Stored piece of data.
   union {
@@ -213,7 +214,8 @@ class PROTOBUF_EXPORT DataPiece {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

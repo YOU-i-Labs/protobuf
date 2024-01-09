@@ -44,6 +44,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -253,7 +254,8 @@ inline void InlinedStringField::UnsafeArenaSetAllocated(
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

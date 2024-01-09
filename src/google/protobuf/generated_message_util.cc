@@ -57,6 +57,7 @@
 #include <google/protobuf/wire_format_lite.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -828,4 +829,5 @@ void InitSCCImpl(SCCInfoBase* scc) {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

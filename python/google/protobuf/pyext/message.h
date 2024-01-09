@@ -42,6 +42,7 @@
 
 #include <google/protobuf/stubs/common.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -369,6 +370,7 @@ extern template bool CheckAndGetInteger<uint64>(PyObject*, uint64*);
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__

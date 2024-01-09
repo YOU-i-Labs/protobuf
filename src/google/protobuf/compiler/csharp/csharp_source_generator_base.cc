@@ -41,6 +41,7 @@
 #include <google/protobuf/compiler/csharp/csharp_names.h>
 #include <google/protobuf/compiler/csharp/csharp_options.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -69,4 +70,5 @@ const Options* SourceGeneratorBase::options() {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

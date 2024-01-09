@@ -41,6 +41,7 @@
 #include <google/protobuf/stubs/mathlimits.h>
 #include <google/protobuf/stubs/mathutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -210,4 +211,5 @@ FieldComparator::ComparisonResult DefaultFieldComparator::ResultFromBoolean(
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

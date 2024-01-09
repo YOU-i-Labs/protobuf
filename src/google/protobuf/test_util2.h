@@ -36,6 +36,7 @@
 #include <google/protobuf/util/message_differencer.h>
 #include <google/protobuf/testing/googletest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace TestUtil {
@@ -77,6 +78,7 @@ bool EqualsToSerialized(const ProtoType& message, const std::string& data) {
 
 }  // namespace TestUtil
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_TEST_UTIL2_H__

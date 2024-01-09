@@ -63,6 +63,7 @@
 
 // ===================================================================
 // emulates google3/base/mutex.h
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -176,7 +177,8 @@ using internal::WriterMutexLock;
 using internal::MutexLockMaybe;
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #undef GOOGLE_PROTOBUF_ACQUIRE
 #undef GOOGLE_PROTOBUF_RELEASE

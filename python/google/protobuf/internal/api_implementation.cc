@@ -30,6 +30,7 @@
 
 #include <Python.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -124,4 +125,5 @@ PyMODINIT_FUNC INITFUNC() {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

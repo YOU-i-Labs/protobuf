@@ -44,6 +44,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -377,7 +378,8 @@ class PROTOBUF_EXPORT Printer {
 
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

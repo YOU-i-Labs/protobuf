@@ -47,6 +47,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -341,4 +342,5 @@ void ReflectionOps::FindInitializationErrors(const Message& message,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

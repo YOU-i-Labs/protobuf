@@ -37,6 +37,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/map_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -198,4 +199,5 @@ bool Context::HasGeneratedMethods(const Descriptor* descriptor) const {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -61,6 +61,7 @@
 #undef minor
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -325,4 +326,5 @@ std::string MockCodeGenerator::GetOutputFileContent(
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -49,6 +49,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -994,7 +995,7 @@ Status ProtoStreamObjectWriter::RenderTimestamp(ProtoStreamObjectWriter* ow,
 
   int64 seconds;
   int32 nanos;
-  if (!::google::protobuf::internal::ParseTime(value.ToString(), &seconds,
+  if (!::yi::google::protobuf::internal::ParseTime(value.ToString(), &seconds,
                                                &nanos)) {
     return Status(INVALID_ARGUMENT, StrCat("Invalid time format: ", value));
   }
@@ -1257,7 +1258,7 @@ void ProtoStreamObjectWriter::InitRendererMap() {
       &ProtoStreamObjectWriter::RenderWrapperType;
   (*renderers_)["type.googleapis.com/google.protobuf.Value"] =
       &ProtoStreamObjectWriter::RenderStructValue;
-  ::google::protobuf::internal::OnShutdown(&DeleteRendererMap);
+  ::yi::google::protobuf::internal::OnShutdown(&DeleteRendererMap);
 }
 
 void ProtoStreamObjectWriter::DeleteRendererMap() {
@@ -1347,4 +1348,5 @@ bool ProtoStreamObjectWriter::IsStructListValue(
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

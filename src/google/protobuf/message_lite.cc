@@ -56,6 +56,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -500,4 +501,5 @@ void GenericTypeHandler<std::string>::Merge(const std::string& from,
 }  // namespace internal
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -34,6 +34,7 @@
 #include "conformance_test.h"
 #include "third_party/jsoncpp/json.h"
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -122,6 +123,7 @@ class BinaryAndJsonConformanceSuite : public ConformanceTestSuite {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // CONFORMANCE_BINARY_JSON_CONFORMANCE_SUITE_H

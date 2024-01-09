@@ -39,6 +39,7 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -179,4 +180,5 @@ void ExtensionGenerator::GenerateDefinition(io::Printer* printer) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

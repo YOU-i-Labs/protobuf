@@ -71,6 +71,7 @@
 #include <string>
 #include <vector>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -465,6 +466,7 @@ bool wcs_to_utf8(const wchar_t* input, string* out) {
 }  // namespace win32
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // defined(_WIN32)

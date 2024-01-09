@@ -52,6 +52,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class DynamicMessage;
@@ -776,7 +777,8 @@ class PROTOBUF_EXPORT MapIterator {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START
 template <>

@@ -43,6 +43,7 @@
 #include <google/protobuf/message.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace TestUtil {
@@ -2403,4 +2404,5 @@ inline void TestUtil::ExpectAtMostOneFieldSetInOneof(
 // ===================================================================
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -38,6 +38,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -189,4 +190,5 @@ std::ostream& operator<<(std::ostream& o, const uint128& b) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

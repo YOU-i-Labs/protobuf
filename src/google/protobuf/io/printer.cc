@@ -40,6 +40,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/io/zero_copy_stream.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -397,4 +398,5 @@ const char* Printer::WriteVariable(
 
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

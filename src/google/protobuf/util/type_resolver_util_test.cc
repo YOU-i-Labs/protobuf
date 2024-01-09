@@ -46,18 +46,19 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 namespace {
-using google::protobuf::BoolValue;
-using google::protobuf::Enum;
-using google::protobuf::EnumValue;
-using google::protobuf::Field;
-using google::protobuf::Int32Value;
-using google::protobuf::Option;
-using google::protobuf::Type;
-using google::protobuf::UInt64Value;
+using yi::google::protobuf::BoolValue;
+using yi::google::protobuf::Enum;
+using yi::google::protobuf::EnumValue;
+using yi::google::protobuf::Field;
+using yi::google::protobuf::Int32Value;
+using yi::google::protobuf::Option;
+using yi::google::protobuf::Type;
+using yi::google::protobuf::UInt64Value;
 
 static const char kUrlPrefix[] = "type.googleapis.com";
 
@@ -434,4 +435,5 @@ TEST_F(DescriptorPoolTypeResolverTest, TestJsonName) {
 }  // namespace
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

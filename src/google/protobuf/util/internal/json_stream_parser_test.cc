@@ -39,6 +39,7 @@
 #include <google/protobuf/stubs/status.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -886,4 +887,5 @@ TEST_F(JsonStreamParserTest, DeepNestJsonExceedLimit) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

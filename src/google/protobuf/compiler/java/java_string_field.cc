@@ -47,6 +47,7 @@
 #include <google/protobuf/wire_format.h>
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -1046,4 +1047,5 @@ std::string RepeatedImmutableStringFieldGenerator::GetBoxedType() const {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

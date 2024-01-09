@@ -60,6 +60,7 @@ class TestAllTypesProto3;
 }  // namespace proto3
 }  // namespace protobuf_test_messages
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -322,6 +323,7 @@ class ConformanceTestSuite {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // CONFORMANCE_CONFORMANCE_TEST_H

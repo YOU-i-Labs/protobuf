@@ -40,6 +40,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -196,7 +197,8 @@ class PROTOBUF_EXPORT ZeroCopyStreamByteSink : public strings::ByteSink {
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

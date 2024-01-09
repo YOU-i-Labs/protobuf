@@ -49,6 +49,7 @@
 
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -204,4 +205,5 @@ bool JavaGenerator::Generate(const FileDescriptor* file,
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

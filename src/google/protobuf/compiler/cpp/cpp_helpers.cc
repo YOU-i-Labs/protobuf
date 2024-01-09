@@ -55,6 +55,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -488,13 +489,13 @@ std::string StripProto(const std::string& filename) {
 const char* PrimitiveTypeName(FieldDescriptor::CppType type) {
   switch (type) {
     case FieldDescriptor::CPPTYPE_INT32:
-      return "::google::protobuf::int32";
+      return "::yi::google::protobuf::int32";
     case FieldDescriptor::CPPTYPE_INT64:
-      return "::google::protobuf::int64";
+      return "::yi::google::protobuf::int64";
     case FieldDescriptor::CPPTYPE_UINT32:
-      return "::google::protobuf::uint32";
+      return "::yi::google::protobuf::uint32";
     case FieldDescriptor::CPPTYPE_UINT64:
-      return "::google::protobuf::uint64";
+      return "::yi::google::protobuf::uint64";
     case FieldDescriptor::CPPTYPE_DOUBLE:
       return "double";
     case FieldDescriptor::CPPTYPE_FLOAT:
@@ -1848,4 +1849,5 @@ void GenerateParserLoop(const Descriptor* descriptor, int num_hasbits,
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

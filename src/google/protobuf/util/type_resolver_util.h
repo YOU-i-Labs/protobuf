@@ -35,6 +35,7 @@
 
 #include <string>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class DescriptorPool;
@@ -50,7 +51,8 @@ PROTOBUF_EXPORT TypeResolver* NewTypeResolverForDescriptorPool(
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

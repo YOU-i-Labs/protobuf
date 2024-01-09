@@ -40,6 +40,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -802,6 +803,7 @@ PRIMITIVE_HANDLER_FUNCTIONS(BOOL)
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_TYPE_HANDLER_H__

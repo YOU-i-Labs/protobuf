@@ -57,6 +57,7 @@
 #define ULL(x) PROTOBUF_ULONGLONG(x)
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -1343,4 +1344,5 @@ TEST_F(CodedStreamTest, InputOver2G) {
 }  // namespace
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

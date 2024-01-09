@@ -53,6 +53,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -533,4 +534,5 @@ bool ExtensionSet::ParseMessageSetItem(io::CodedInputStream* input,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

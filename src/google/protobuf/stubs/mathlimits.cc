@@ -37,6 +37,7 @@
 
 #include <google/protobuf/stubs/common.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -86,4 +87,5 @@ DEF_FP_LIMITS(long double, LDBL);
 
 #undef DEF_FP_LIMITS
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -36,6 +36,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/stl_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace strings {
@@ -135,4 +136,5 @@ void SubstituteAndAppend(
 
 }  // namespace strings
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -38,6 +38,7 @@
 
 #include <google/protobuf/pyext/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -85,6 +86,7 @@ void Clear(PyUnknownFields* self);
 }  // namespace unknown_fields
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_UNKNOWN_FIELDS_H__

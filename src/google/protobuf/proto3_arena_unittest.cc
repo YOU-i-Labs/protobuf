@@ -41,6 +41,7 @@
 
 using proto3_arena_unittest::TestAllTypes;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -199,4 +200,5 @@ TEST(Proto3ArenaTest, MessageFieldClearViaReflection) {
 
 }  // namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

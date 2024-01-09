@@ -91,6 +91,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -256,7 +257,8 @@ inline const T& StatusOr<T>::ValueOrDie() const {
 }
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

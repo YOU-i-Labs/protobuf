@@ -50,6 +50,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -60,11 +61,11 @@ namespace io {
 #define lseek(fd, offset, origin) ((off_t)-1)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::access;
-using google::protobuf::io::win32::close;
-using google::protobuf::io::win32::open;
-using google::protobuf::io::win32::read;
-using google::protobuf::io::win32::write;
+using yi::google::protobuf::io::win32::access;
+using yi::google::protobuf::io::win32::close;
+using yi::google::protobuf::io::win32::open;
+using yi::google::protobuf::io::win32::read;
+using yi::google::protobuf::io::win32::write;
 #endif
 
 namespace {
@@ -372,4 +373,5 @@ int64 ConcatenatingInputStream::ByteCount() const {
 
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

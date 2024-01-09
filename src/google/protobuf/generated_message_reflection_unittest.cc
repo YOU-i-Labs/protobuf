@@ -55,6 +55,7 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1051,4 +1052,5 @@ TEST(GeneratedMessageReflectionTest, UsageErrors) {
 
 }  // namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

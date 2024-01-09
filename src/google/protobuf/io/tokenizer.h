@@ -44,6 +44,7 @@
 #include <google/protobuf/stubs/logging.h>
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -405,7 +406,8 @@ inline void Tokenizer::ParseString(const std::string& text,
 
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -36,6 +36,7 @@
 
 #include <google/protobuf/stubs/common.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class Descriptor;
@@ -122,6 +123,7 @@ class ClassNameResolver {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_NAME_RESOLVER_H__

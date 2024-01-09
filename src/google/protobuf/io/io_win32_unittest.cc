@@ -58,6 +58,7 @@
 
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -625,7 +626,8 @@ TEST_F(IoWin32Test, Utf8Utf16ConversionTest) {
 }  // namespace win32
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // defined(_WIN32)
 

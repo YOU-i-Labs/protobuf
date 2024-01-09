@@ -129,6 +129,7 @@
 #define PROTOBUF_FINAL
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -429,7 +430,8 @@ class BigEndian {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

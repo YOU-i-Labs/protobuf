@@ -55,6 +55,7 @@
 // Always include as last one, otherwise it can break compilation
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1970,4 +1971,5 @@ MessageDifferencer::CreateMultipleFieldsMapKeyComparator(
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -53,6 +53,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -492,14 +493,14 @@ TEST(WireFormatTest, SerializeMessageSetVariousWaysAreEqual) {
 
   // Serialize to flat array
   {
-    uint8* target = reinterpret_cast<uint8*>(::google::protobuf::string_as_array(&flat_data));
+    uint8* target = reinterpret_cast<uint8*>(::yi::google::protobuf::string_as_array(&flat_data));
     uint8* end = message_set.SerializeWithCachedSizesToArray(target);
     EXPECT_EQ(size, end - target);
   }
 
   // Serialize to buffer
   {
-    io::ArrayOutputStream array_stream(::google::protobuf::string_as_array(&stream_data), size,
+    io::ArrayOutputStream array_stream(::yi::google::protobuf::string_as_array(&stream_data), size,
                                        1);
     io::CodedOutputStream output_stream(&array_stream);
     message_set.SerializeWithCachedSizes(&output_stream);
@@ -1520,4 +1521,5 @@ TEST(RepeatedVarint, Enum) {
 }  // namespace
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

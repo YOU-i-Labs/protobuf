@@ -44,6 +44,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -228,7 +229,8 @@ class PROTOBUF_EXPORT LiteUnknownFieldSetter {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -133,6 +133,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1259,7 +1260,8 @@ inline RepeatedPtrField<PB>* Reflection::MutableRepeatedPtrField(
                               -1, PB::default_instance().GetDescriptor()));
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

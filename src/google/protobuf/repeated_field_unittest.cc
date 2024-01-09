@@ -53,6 +53,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/stubs/stl_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -1996,4 +1997,5 @@ TEST_F(RepeatedFieldInsertionIteratorsTest, MoveProtos) {
 }  // namespace
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

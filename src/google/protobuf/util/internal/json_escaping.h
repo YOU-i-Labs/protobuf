@@ -34,6 +34,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/bytestream.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -86,6 +87,7 @@ class JsonEscaping {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_UTIL_INTERNAL__JSON_ESCAPING_H__

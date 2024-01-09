@@ -37,6 +37,7 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -139,7 +140,8 @@ class PROTOBUF_EXPORT ObjectWriter {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

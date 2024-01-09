@@ -138,14 +138,16 @@
 #endif
 
 
-#define PROTOBUF_NAMESPACE "google::protobuf"
-#define PROTOBUF_NAMESPACE_ID google::protobuf
+#define PROTOBUF_NAMESPACE "yi::google::protobuf"
+#define PROTOBUF_NAMESPACE_ID yi::google::protobuf
 #define PROTOBUF_NAMESPACE_OPEN \
+  namespace yi { \
   namespace google {            \
   namespace protobuf {
 #define PROTOBUF_NAMESPACE_CLOSE \
   } /* namespace protobuf */     \
-  } /* namespace google */
+  } /* namespace google */ \
+  } /* namespace yi */
 #define PROTOBUF_DEPRECATED
 #define PROTOBUF_DEPRECATED_MSG(x)
 #define PROTOBUF_SECTION_VARIABLE(x)
@@ -326,7 +328,7 @@
 // choose 16 rather than some other number just in case the compiler would
 // be confused by an unaligned pointer.
 #define PROTOBUF_FIELD_OFFSET(TYPE, FIELD)                                \
-  static_cast< ::google::protobuf::uint32>(reinterpret_cast<const char*>(                   \
+  static_cast< ::yi::google::protobuf::uint32>(reinterpret_cast<const char*>(                   \
                              &reinterpret_cast<const TYPE*>(16)->FIELD) - \
                          reinterpret_cast<const char*>(16))
 #endif

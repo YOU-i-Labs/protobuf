@@ -46,6 +46,7 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -117,4 +118,5 @@ TEST(JavaPluginTest, PluginTest) {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

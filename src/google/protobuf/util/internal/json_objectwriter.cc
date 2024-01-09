@@ -40,6 +40,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/mathlimits.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -190,4 +191,5 @@ void JsonObjectWriter::WritePrefix(StringPiece name) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

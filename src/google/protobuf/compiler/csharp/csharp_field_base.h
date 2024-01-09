@@ -39,6 +39,7 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/io/printer.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -101,7 +102,8 @@ class FieldGeneratorBase : public SourceGeneratorBase {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_FIELD_BASE_H__
 

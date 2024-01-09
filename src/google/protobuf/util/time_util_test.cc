@@ -37,12 +37,13 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 
-using google::protobuf::Duration;
-using google::protobuf::Timestamp;
+using yi::google::protobuf::Duration;
+using yi::google::protobuf::Timestamp;
 
 namespace {
 
@@ -377,4 +378,5 @@ TEST(TimeUtilTest, TimestampOperators) {
 }  // namespace
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

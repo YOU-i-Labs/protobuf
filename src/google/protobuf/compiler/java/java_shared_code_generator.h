@@ -42,6 +42,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/compiler/java/java_options.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class FileDescriptor;  // descriptor.h
@@ -55,8 +56,10 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -85,6 +88,7 @@ class SharedCodeGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_SHARED_CODE_GENERATOR_H__

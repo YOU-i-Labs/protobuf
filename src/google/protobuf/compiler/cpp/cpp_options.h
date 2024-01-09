@@ -35,6 +35,7 @@
 
 #include <string>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -72,6 +73,7 @@ struct Options {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_OPTIONS_H__

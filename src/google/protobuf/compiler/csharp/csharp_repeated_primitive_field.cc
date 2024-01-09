@@ -41,6 +41,7 @@
 #include <google/protobuf/compiler/csharp/csharp_helpers.h>
 #include <google/protobuf/compiler/csharp/csharp_repeated_primitive_field.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -121,4 +122,5 @@ void RepeatedPrimitiveFieldGenerator::GenerateFreezingCode(io::Printer* printer)
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

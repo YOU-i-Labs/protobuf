@@ -60,15 +60,18 @@ using type_info = ::type_info;
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
 struct ArenaOptions;  // defined below
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -724,7 +727,8 @@ class PROTOBUF_EXPORT alignas(8) Arena final {
 #undef RTTI_TYPE_ID
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

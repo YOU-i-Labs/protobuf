@@ -36,6 +36,7 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -271,4 +272,5 @@ TEST(StatusOr, TestPointerValueConst) {
 }  // namespace
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

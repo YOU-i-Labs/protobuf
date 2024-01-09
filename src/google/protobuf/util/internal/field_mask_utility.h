@@ -41,6 +41,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/status.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -68,6 +69,7 @@ util::Status DecodeCompactFieldMaskPaths(StringPiece paths,
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__

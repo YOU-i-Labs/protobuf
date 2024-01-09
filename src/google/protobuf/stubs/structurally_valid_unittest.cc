@@ -34,6 +34,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -67,4 +68,5 @@ TEST(StructurallyValidTest, InvalidUTF8String) {
 }  // namespace
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

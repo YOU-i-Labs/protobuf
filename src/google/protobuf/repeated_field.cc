@@ -42,6 +42,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -133,4 +134,5 @@ template class PROTOBUF_EXPORT RepeatedField<double>;
 template class PROTOBUF_EXPORT RepeatedPtrField<std::string>;
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

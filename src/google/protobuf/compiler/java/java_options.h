@@ -33,6 +33,7 @@
 
 #include <string>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -68,6 +69,7 @@ struct Options {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_OPTIONS_H__

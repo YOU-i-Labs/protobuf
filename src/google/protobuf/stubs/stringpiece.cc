@@ -37,6 +37,7 @@
 
 #include <google/protobuf/stubs/logging.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 std::ostream& operator<<(std::ostream& o, StringPiece piece) {
@@ -267,4 +268,5 @@ StringPiece StringPiece::substr(size_type pos, size_type n) const {
 const StringPiece::size_type StringPiece::npos = size_type(-1);
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

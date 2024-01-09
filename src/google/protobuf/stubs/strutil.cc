@@ -58,6 +58,7 @@
 #define snprintf _snprintf
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2413,4 +2414,5 @@ void CleanStringLineEndings(string *str, bool auto_end_last_line) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

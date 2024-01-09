@@ -54,22 +54,23 @@
 
 #define GOOGLE_PROTOBUF_HAS_ONEOF
 
-using google::protobuf::internal::ArenaStringPtr;
-using google::protobuf::internal::DescriptorTable;
-using google::protobuf::internal::ExtensionSet;
-using google::protobuf::internal::GenericTypeHandler;
-using google::protobuf::internal::GetEmptyString;
-using google::protobuf::internal::InlinedStringField;
-using google::protobuf::internal::InternalMetadataWithArena;
-using google::protobuf::internal::LazyField;
-using google::protobuf::internal::MapFieldBase;
-using google::protobuf::internal::MigrationSchema;
-using google::protobuf::internal::OnShutdownDelete;
-using google::protobuf::internal::ReflectionSchema;
-using google::protobuf::internal::RepeatedPtrFieldBase;
-using google::protobuf::internal::StringSpaceUsedExcludingSelfLong;
-using google::protobuf::internal::WrappedMutex;
+using yi::google::protobuf::internal::ArenaStringPtr;
+using yi::google::protobuf::internal::DescriptorTable;
+using yi::google::protobuf::internal::ExtensionSet;
+using yi::google::protobuf::internal::GenericTypeHandler;
+using yi::google::protobuf::internal::GetEmptyString;
+using yi::google::protobuf::internal::InlinedStringField;
+using yi::google::protobuf::internal::InternalMetadataWithArena;
+using yi::google::protobuf::internal::LazyField;
+using yi::google::protobuf::internal::MapFieldBase;
+using yi::google::protobuf::internal::MigrationSchema;
+using yi::google::protobuf::internal::OnShutdownDelete;
+using yi::google::protobuf::internal::ReflectionSchema;
+using yi::google::protobuf::internal::RepeatedPtrFieldBase;
+using yi::google::protobuf::internal::StringSpaceUsedExcludingSelfLong;
+using yi::google::protobuf::internal::WrappedMutex;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2434,4 +2435,5 @@ void UnknownFieldSetSerializer(const uint8* base, uint32 offset, uint32 tag,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

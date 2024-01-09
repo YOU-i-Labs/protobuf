@@ -39,6 +39,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -514,4 +515,5 @@ TEST(Int128, OStream) {
   }
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

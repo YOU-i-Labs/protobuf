@@ -47,6 +47,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -359,4 +360,5 @@ const char* UnknownFieldParse(uint32 tag, InternalMetadataWithArena* metadata,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

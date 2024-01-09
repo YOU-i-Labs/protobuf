@@ -50,6 +50,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -63,8 +64,10 @@ template <typename Derived, typename Key, typename Value,
 class MapFieldLite;
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -231,7 +234,7 @@ class MapEntryImpl : public Base {
   std::string GetTypeName() const override { return ""; }
 
   void CheckTypeAndMergeFrom(const MessageLite& other) override {
-    MergeFromInternal(*::google::protobuf::internal::DownCast<const Derived*>(&other));
+    MergeFromInternal(*::yi::google::protobuf::internal::DownCast<const Derived*>(&other));
   }
 
   const char* _InternalParse(const char* ptr, ParseContext* ctx) final {
@@ -274,8 +277,8 @@ class MapEntryImpl : public Base {
     return size;
   }
 
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* ptr, io::EpsCopyOutputStream* stream) const override {
+  ::yi::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::yi::google::protobuf::uint8* ptr, io::EpsCopyOutputStream* stream) const override {
     ptr = KeyTypeHandler::Write(kKeyFieldNumber, key(), ptr, stream);
     return ValueTypeHandler::Write(kValueFieldNumber, value(), ptr, stream);
   }
@@ -669,7 +672,8 @@ struct MapEntryHelper<MapEntryLite<T, Key, Value, kKeyFieldType,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -35,6 +35,7 @@
 #include <string>
 #include <google/protobuf/compiler/objectivec/objectivec_field.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -77,6 +78,7 @@ class RepeatedMessageFieldGenerator : public RepeatedFieldGenerator {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_OBJECTIVEC_MESSAGE_FIELD_H__

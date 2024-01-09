@@ -45,6 +45,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -411,4 +412,5 @@ bool SafeStrToFloat(StringPiece str, float* value) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

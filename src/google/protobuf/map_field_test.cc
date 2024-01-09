@@ -45,6 +45,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -477,4 +478,5 @@ TEST_P(MapFieldStateTest, MutableMapField) {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -42,6 +42,7 @@
 #include <google/protobuf/compiler/csharp/csharp_message_field.h>
 #include <google/protobuf/compiler/csharp/csharp_wrapper_field.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -140,4 +141,5 @@ void RepeatedMessageFieldGenerator::GenerateFreezingCode(io::Printer* printer) {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

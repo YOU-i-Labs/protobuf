@@ -35,6 +35,7 @@
 #include <google/protobuf/compiler/objectivec/objectivec_helpers.h>
 #include <google/protobuf/io/printer.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -174,4 +175,5 @@ void MapFieldGenerator::DetermineForwardDeclarations(
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

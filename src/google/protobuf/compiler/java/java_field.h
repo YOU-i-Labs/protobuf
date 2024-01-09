@@ -43,6 +43,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/descriptor.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -55,8 +56,10 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -183,6 +186,7 @@ void PrintExtraFieldInfo(const std::map<std::string, std::string>& variables,
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_FIELD_H__

@@ -40,6 +40,7 @@
 #include <google/protobuf/wire_format.h>
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -471,4 +472,5 @@ bool FieldGeneratorMap::DoesAnyFieldHaveNonZeroDefault(void) const {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

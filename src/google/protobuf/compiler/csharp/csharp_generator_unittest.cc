@@ -39,6 +39,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/testing/file.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -67,4 +68,5 @@ TEST(CSharpEnumValue, PascalCasedPrefixStripping) {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

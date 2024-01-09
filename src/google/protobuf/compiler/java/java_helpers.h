@@ -41,6 +41,7 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/descriptor.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -424,6 +425,7 @@ std::pair<int, int> GetTableDrivenNumberOfEntriesAndLookUpStartFieldNumber(
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_HELPERS_H__

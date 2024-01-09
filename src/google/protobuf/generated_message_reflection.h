@@ -58,6 +58,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class DescriptorPool;
@@ -67,8 +68,10 @@ class MessageLayoutInspector;
 class Message;
 struct Metadata;
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -303,7 +306,8 @@ PROTOBUF_EXPORT void UnknownFieldSetSerializer(const uint8* base, uint32 offset,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -45,6 +45,7 @@
 #define PROTOBUF_HAS_DEATH_TEST
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -99,6 +100,7 @@ class ScopedMemoryLog {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_GOOGLETEST_H__

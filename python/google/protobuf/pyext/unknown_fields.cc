@@ -44,6 +44,7 @@
   #define PyInt_FromLong PyLong_FromLong
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -354,4 +355,5 @@ PyTypeObject PyUnknownFieldRef_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

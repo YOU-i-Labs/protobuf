@@ -36,6 +36,7 @@
 #include <google/protobuf/stubs/common.h>
 
 #include <Python.h>
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -96,5 +97,6 @@ typedef ScopedPythonPtr<PyObject> ScopedPyObjectPtr;
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__

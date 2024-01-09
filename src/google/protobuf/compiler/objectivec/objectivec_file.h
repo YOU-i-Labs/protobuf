@@ -38,6 +38,7 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/io/printer.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -78,6 +79,7 @@ class FileGenerator {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_OBJECTIVEC_FILE_H__

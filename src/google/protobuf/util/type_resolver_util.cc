@@ -43,25 +43,26 @@
 #include <google/protobuf/port_def.inc>
 // clang-format on
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 namespace {
-using google::protobuf::Any;
-using google::protobuf::BoolValue;
-using google::protobuf::BytesValue;
-using google::protobuf::DoubleValue;
-using google::protobuf::Enum;
-using google::protobuf::EnumValue;
-using google::protobuf::Field;
-using google::protobuf::FloatValue;
-using google::protobuf::Int32Value;
-using google::protobuf::Int64Value;
-using google::protobuf::Option;
-using google::protobuf::StringValue;
-using google::protobuf::Type;
-using google::protobuf::UInt32Value;
-using google::protobuf::UInt64Value;
+using yi::google::protobuf::Any;
+using yi::google::protobuf::BoolValue;
+using yi::google::protobuf::BytesValue;
+using yi::google::protobuf::DoubleValue;
+using yi::google::protobuf::Enum;
+using yi::google::protobuf::EnumValue;
+using yi::google::protobuf::Field;
+using yi::google::protobuf::FloatValue;
+using yi::google::protobuf::Int32Value;
+using yi::google::protobuf::Int64Value;
+using yi::google::protobuf::Option;
+using yi::google::protobuf::StringValue;
+using yi::google::protobuf::Type;
+using yi::google::protobuf::UInt32Value;
+using yi::google::protobuf::UInt64Value;
 
 using util::Status;
 using util::error::INVALID_ARGUMENT;
@@ -369,4 +370,5 @@ TypeResolver* NewTypeResolverForDescriptorPool(const std::string& url_prefix,
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

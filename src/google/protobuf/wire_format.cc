@@ -57,6 +57,7 @@
 
 const size_t kMapEntryTagByteSize = 2;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -1356,4 +1357,5 @@ size_t ComputeUnknownFieldsSize(const InternalMetadataWithArena& metadata,
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

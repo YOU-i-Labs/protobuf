@@ -41,6 +41,7 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/pyext/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -72,6 +73,7 @@ PyObject* Extend(RepeatedScalarContainer* self, PyObject* value);
 }  // namespace repeated_scalar_container
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__

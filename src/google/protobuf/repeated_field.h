@@ -72,6 +72,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2665,7 +2666,8 @@ extern template class PROTOBUF_EXPORT RepeatedField<double>;
 extern template class PROTOBUF_EXPORT RepeatedPtrField<std::string>;
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

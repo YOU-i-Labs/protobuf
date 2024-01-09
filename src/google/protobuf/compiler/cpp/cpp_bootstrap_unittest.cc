@@ -59,6 +59,7 @@
 #include <google/protobuf/stubs/map_util.h>
 #include <google/protobuf/stubs/stl_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -195,4 +196,5 @@ TEST(BootstrapTest, OptionNotExist) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

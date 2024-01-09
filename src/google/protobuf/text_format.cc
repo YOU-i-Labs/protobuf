@@ -64,6 +64,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2508,4 +2509,5 @@ void TextFormat::Printer::PrintUnknownFields(
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

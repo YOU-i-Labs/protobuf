@@ -48,6 +48,7 @@
 #include <google/protobuf/io/io_win32.h>
 #include <google/protobuf/stubs/logging.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -59,11 +60,11 @@ namespace protobuf {
 #endif
 
 #ifdef _WIN32
-using google::protobuf::io::win32::access;
-using google::protobuf::io::win32::chdir;
-using google::protobuf::io::win32::fopen;
-using google::protobuf::io::win32::mkdir;
-using google::protobuf::io::win32::stat;
+using yi::google::protobuf::io::win32::access;
+using yi::google::protobuf::io::win32::chdir;
+using yi::google::protobuf::io::win32::fopen;
+using yi::google::protobuf::io::win32::mkdir;
+using yi::google::protobuf::io::win32::stat;
 #endif
 
 bool File::Exists(const string& name) {
@@ -209,4 +210,5 @@ bool File::ChangeWorkingDirectory(const string& new_working_directory) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
