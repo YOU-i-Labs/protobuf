@@ -40,10 +40,12 @@
 
 goog.require('goog.crypt');
 goog.require('goog.testing.asserts');
+goog.require('jspb.BinaryConstants');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.utils');
-
+goog.require('goog.crypt.base64');
+goog.requireType('jspb.BinaryMessage');
 
 /**
  * @param {function()} func This function should throw an error when run.
@@ -60,7 +62,7 @@ describe('binaryWriterTest', function() {
   it('testWriteErrors', function() {
     // Submessages with invalid field indices should assert.
     var writer = new jspb.BinaryWriter();
-    var dummyMessage = /** @type {!jspb.BinaryMessage} */({});
+    var dummyMessage = /** @type {!jspb.BinaryMessage} */ ({});
 
     assertFails(function() {
       writer.writeMessage(-1, dummyMessage, goog.nullFunction);
@@ -68,40 +70,82 @@ describe('binaryWriterTest', function() {
 
     // Writing invalid field indices should assert.
     writer = new jspb.BinaryWriter();
-    assertFails(function() {writer.writeUint64(-1, 1);});
+    assertFails(function() {
+      writer.writeUint64(-1, 1);
+    });
 
     // Writing out-of-range field values should assert.
     writer = new jspb.BinaryWriter();
 
-    assertFails(function() {writer.writeInt32(1, -Infinity);});
-    assertFails(function() {writer.writeInt32(1, Infinity);});
+    assertFails(function() {
+      writer.writeInt32(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeInt32(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeInt64(1, -Infinity);});
-    assertFails(function() {writer.writeInt64(1, Infinity);});
+    assertFails(function() {
+      writer.writeInt64(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeInt64(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeUint32(1, -1);});
-    assertFails(function() {writer.writeUint32(1, Infinity);});
+    assertFails(function() {
+      writer.writeUint32(1, -1);
+    });
+    assertFails(function() {
+      writer.writeUint32(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeUint64(1, -1);});
-    assertFails(function() {writer.writeUint64(1, Infinity);});
+    assertFails(function() {
+      writer.writeUint64(1, -1);
+    });
+    assertFails(function() {
+      writer.writeUint64(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeSint32(1, -Infinity);});
-    assertFails(function() {writer.writeSint32(1, Infinity);});
+    assertFails(function() {
+      writer.writeSint32(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeSint32(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeSint64(1, -Infinity);});
-    assertFails(function() {writer.writeSint64(1, Infinity);});
+    assertFails(function() {
+      writer.writeSint64(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeSint64(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeFixed32(1, -1);});
-    assertFails(function() {writer.writeFixed32(1, Infinity);});
+    assertFails(function() {
+      writer.writeFixed32(1, -1);
+    });
+    assertFails(function() {
+      writer.writeFixed32(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeFixed64(1, -1);});
-    assertFails(function() {writer.writeFixed64(1, Infinity);});
+    assertFails(function() {
+      writer.writeFixed64(1, -1);
+    });
+    assertFails(function() {
+      writer.writeFixed64(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeSfixed32(1, -Infinity);});
-    assertFails(function() {writer.writeSfixed32(1, Infinity);});
+    assertFails(function() {
+      writer.writeSfixed32(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeSfixed32(1, Infinity);
+    });
 
-    assertFails(function() {writer.writeSfixed64(1, -Infinity);});
-    assertFails(function() {writer.writeSfixed64(1, Infinity);});
+    assertFails(function() {
+      writer.writeSfixed64(1, -Infinity);
+    });
+    assertFails(function() {
+      writer.writeSfixed64(1, Infinity);
+    });
   });
 
 
@@ -209,7 +253,7 @@ describe('binaryWriterTest', function() {
   });
 
   it('writes zigzag 64 fields', function() {
-    // Test cases direcly from the protobuf dev guide.
+    // Test cases directly from the protobuf dev guide.
     // https://engdoc.corp.google.com/eng/howto/protocolbuffers/developerguide/encoding.shtml?cl=head#types
     var testCases = [
       {original: '0', zigzag: '0'},
@@ -318,5 +362,51 @@ describe('binaryWriterTest', function() {
     expect(reader.readPackedUint64String()).toEqual(testCases.map(function(c) {
       return c.zigzag;
     }));
+  });
+
+  it('writes float32 fields', function() {
+    var testCases = [
+      0, 1, -1, jspb.BinaryConstants.FLOAT32_MIN,
+      -jspb.BinaryConstants.FLOAT32_MIN, jspb.BinaryConstants.FLOAT32_MAX,
+      -jspb.BinaryConstants.FLOAT32_MAX, 3.1415927410125732, Infinity,
+      -Infinity, NaN
+    ];
+    var writer = new jspb.BinaryWriter();
+    testCases.forEach(function(f) {
+      writer.writeFloat(1, f);
+    });
+    var reader = jspb.BinaryReader.alloc(writer.getResultBuffer());
+    testCases.forEach(function(f) {
+      reader.nextField();
+      expect(reader.getFieldNumber()).toEqual(1);
+      if (isNaN(f)) {
+        expect(isNaN(reader.readFloat())).toEqual(true);
+      } else {
+        expect(reader.readFloat()).toEqual(f);
+      }
+    });
+  });
+
+  it('writes double fields', function() {
+    var testCases = [
+      0, 1, -1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER,
+      Number.MAX_VALUE, Number.MIN_VALUE, jspb.BinaryConstants.FLOAT32_MIN,
+      -jspb.BinaryConstants.FLOAT32_MIN, jspb.BinaryConstants.FLOAT32_MAX,
+      -jspb.BinaryConstants.FLOAT32_MAX, Math.PI, Infinity, -Infinity, NaN
+    ];
+    var writer = new jspb.BinaryWriter();
+    testCases.forEach(function(f) {
+      writer.writeDouble(1, f);
+    });
+    var reader = jspb.BinaryReader.alloc(writer.getResultBuffer());
+    testCases.forEach(function(f) {
+      reader.nextField();
+      expect(reader.getFieldNumber()).toEqual(1);
+      if (isNaN(f)) {
+        expect(isNaN(reader.readDouble())).toEqual(true);
+      } else {
+        expect(reader.readDouble()).toEqual(f);
+      }
+    });
   });
 });
