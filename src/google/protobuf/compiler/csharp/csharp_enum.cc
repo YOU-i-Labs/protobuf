@@ -42,7 +42,6 @@
 #include <google/protobuf/compiler/csharp/csharp_helpers.h>
 #include <google/protobuf/compiler/csharp/csharp_options.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -96,5 +95,4 @@ void EnumGenerator::Generate(io::Printer* printer) {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

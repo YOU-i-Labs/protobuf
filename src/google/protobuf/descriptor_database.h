@@ -50,7 +50,6 @@
 #error "You cannot SWIG proto headers"
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -401,8 +400,7 @@ class PROTOBUF_EXPORT MergedDescriptorDatabase : public DescriptorDatabase {
 };
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

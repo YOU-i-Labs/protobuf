@@ -53,7 +53,6 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/substitute.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -146,5 +145,4 @@ void MessageBuilderLiteGenerator::GenerateCommonBuilderMethods(
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -50,7 +50,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -195,8 +194,7 @@ class PROTOBUF_EXPORT GzipOutputStream : public ZeroCopyOutputStream {
 
 }  // namespace io
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

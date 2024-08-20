@@ -40,7 +40,6 @@
 
 #include <string>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -109,6 +108,5 @@ const char* BoxedPrimitiveTypeName(const FieldDescriptor* descriptor);
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_NAMES_H__

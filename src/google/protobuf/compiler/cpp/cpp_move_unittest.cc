@@ -37,7 +37,6 @@
 #include <type_traits>
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -167,5 +166,4 @@ TEST(MovableMessageTest, Noexcept) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

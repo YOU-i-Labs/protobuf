@@ -37,9 +37,7 @@
 #include <google/protobuf/proto3_lite_unittest.inc>
 
 // Make extract script happy.
-namespace yi {
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

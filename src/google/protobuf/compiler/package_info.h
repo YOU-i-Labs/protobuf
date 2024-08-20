@@ -36,7 +36,6 @@
 // It is not compiled into anything, but it may be read by an automated
 // documentation generator.
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -61,5 +60,4 @@ namespace protobuf {
 namespace compiler {}
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

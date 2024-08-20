@@ -33,7 +33,6 @@
 #include <google/protobuf/stubs/logging.h>
 #include <google/protobuf/stubs/common.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -345,5 +344,4 @@ void JsonEscaping::Escape(strings::ByteSource* input,
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

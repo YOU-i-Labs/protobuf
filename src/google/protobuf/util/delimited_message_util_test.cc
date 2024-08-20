@@ -40,7 +40,6 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -85,5 +84,4 @@ TEST(DelimitedMessageUtilTest, DelimitedMessages) {
 
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

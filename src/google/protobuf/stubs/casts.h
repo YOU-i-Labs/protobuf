@@ -35,7 +35,6 @@
 
 #include <google/protobuf/stubs/common.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -131,6 +130,5 @@ using internal::down_cast;
 using internal::bit_cast;
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 #endif  // GOOGLE_PROTOBUF_CASTS_H__

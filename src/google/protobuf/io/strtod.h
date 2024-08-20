@@ -35,7 +35,6 @@
 #ifndef GOOGLE_PROTOBUF_IO_STRTOD_H__
 #define GOOGLE_PROTOBUF_IO_STRTOD_H__
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -51,7 +50,6 @@ float SafeDoubleToFloat(double value);
 
 }  // namespace io
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_IO_STRTOD_H__

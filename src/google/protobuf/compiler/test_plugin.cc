@@ -38,7 +38,6 @@
 #include <google/protobuf/compiler/mock_code_generator.h>
 #include <google/protobuf/compiler/plugin.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -50,8 +49,7 @@ int ProtobufMain(int argc, char* argv[]) {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 int main(int argc, char* argv[]) {
 #ifdef _MSC_VER

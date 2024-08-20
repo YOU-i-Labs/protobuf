@@ -32,7 +32,6 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/message.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -269,5 +268,4 @@ inline std::vector<const Message*> MapTestUtil::GetMapEntriesFromRelease(
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

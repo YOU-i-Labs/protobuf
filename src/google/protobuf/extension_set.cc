@@ -50,7 +50,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -2144,5 +2143,4 @@ size_t ExtensionSet::MessageSetByteSize() const {
 
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -40,7 +40,6 @@
 #include <google/protobuf/compiler/java/java_field.h>
 #include <google/protobuf/compiler/java/java_message.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -78,7 +77,6 @@ class ImmutableMessageLiteGenerator : public MessageGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_LITE_H__

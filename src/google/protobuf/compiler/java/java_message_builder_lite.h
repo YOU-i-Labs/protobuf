@@ -39,7 +39,6 @@
 #include <string>
 #include <google/protobuf/compiler/java/java_field.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -52,10 +51,8 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -83,7 +80,6 @@ class MessageBuilderLiteGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_LITE_H__

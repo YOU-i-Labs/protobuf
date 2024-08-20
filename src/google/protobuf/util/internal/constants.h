@@ -35,7 +35,6 @@
 
 // This file contains constants used by //net/proto2/util/converter.
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -96,6 +95,5 @@ const char kOptionJspbMessageId[] = "jspb.message_id";
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 #endif  // GOOGLE_PROTOBUF_UTIL_CONVERTER_CONSTANTS_H__

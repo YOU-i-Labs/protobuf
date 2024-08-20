@@ -39,7 +39,6 @@
 
 using proto3_arena_unittest::TestAllTypes;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -153,5 +152,4 @@ TEST(Proto3ArenaLiteTest, ReleaseMessage) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

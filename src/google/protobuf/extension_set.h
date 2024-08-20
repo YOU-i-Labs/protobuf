@@ -59,7 +59,6 @@
 #error "You cannot SWIG proto headers"
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 class Arena;
@@ -74,10 +73,8 @@ namespace internal {
 class FieldSkipper;  // wire_format_lite.h
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -1584,8 +1581,7 @@ void LinkExtensionReflection(
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

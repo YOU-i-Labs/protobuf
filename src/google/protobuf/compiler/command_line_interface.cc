@@ -85,7 +85,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -102,12 +101,12 @@ namespace {
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using yi::google::protobuf::io::win32::access;
-using yi::google::protobuf::io::win32::close;
-using yi::google::protobuf::io::win32::mkdir;
-using yi::google::protobuf::io::win32::open;
-using yi::google::protobuf::io::win32::setmode;
-using yi::google::protobuf::io::win32::write;
+using google::protobuf::io::win32::access;
+using google::protobuf::io::win32::close;
+using google::protobuf::io::win32::mkdir;
+using google::protobuf::io::win32::open;
+using google::protobuf::io::win32::setmode;
+using google::protobuf::io::win32::write;
 #endif
 
 static const char* kDefaultDirectDependenciesViolationMsg =
@@ -743,7 +742,7 @@ CommandLineInterface::MemoryOutputStream::~MemoryOutputStream() {
 
       // Now copy in the data.
       std::string::size_type data_pos = 0;
-      char* target_ptr = ::yi::google::protobuf::string_as_array(target) + pos;
+      char* target_ptr = ::google::protobuf::string_as_array(target) + pos;
       while (data_pos < data_.size()) {
         // Copy indent.
         memcpy(target_ptr, indent_.data(), indent_.size());
@@ -760,7 +759,7 @@ CommandLineInterface::MemoryOutputStream::~MemoryOutputStream() {
       }
 
       GOOGLE_CHECK_EQ(target_ptr,
-               ::yi::google::protobuf::string_as_array(target) + pos + data_.size() + indent_size);
+               ::google::protobuf::string_as_array(target) + pos + data_.size() + indent_size);
     }
   }
 }
@@ -2378,5 +2377,4 @@ void CommandLineInterface::PrintFreeFieldNumbers(const Descriptor* descriptor) {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

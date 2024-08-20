@@ -41,7 +41,6 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/compiler/cpp/cpp_options.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 class FieldDescriptor;  // descriptor.h
@@ -49,10 +48,8 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -89,7 +86,6 @@ class ExtensionGenerator {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MESSAGE_H__

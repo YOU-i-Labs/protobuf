@@ -40,7 +40,6 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/testing/file.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -129,5 +128,4 @@ TEST(RubyGeneratorTest, Proto3ExplictLegacyPackageTest) {
 }  // namespace ruby
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

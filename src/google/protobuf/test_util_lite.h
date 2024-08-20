@@ -37,7 +37,6 @@
 
 #include <google/protobuf/unittest_lite.pb.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -97,7 +96,6 @@ class TestUtilLite {
 };
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_TEST_UTIL_LITE_H__

@@ -36,7 +36,6 @@
 // See descriptor_containers.cc for more description.
 #include <Python.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -105,7 +104,6 @@ PyObject* NewServiceMethodsByName(const ServiceDescriptor* descriptor);
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__

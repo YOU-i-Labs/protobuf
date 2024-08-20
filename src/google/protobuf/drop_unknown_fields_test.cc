@@ -38,7 +38,6 @@
 using unittest_drop_unknown_fields::Foo;
 using unittest_drop_unknown_fields::FooWithExtraFields;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -81,5 +80,4 @@ TEST(DropUnknownFieldsTest, DynamicMessage) {
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -40,7 +40,6 @@
 
 #include <google/protobuf/compiler/ruby/ruby_generator.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -597,5 +596,4 @@ bool Generator::Generate(
 }  // namespace ruby
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

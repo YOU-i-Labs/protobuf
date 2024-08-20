@@ -63,7 +63,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2030,5 +2029,4 @@ TEST(TextFormatUnknownFieldTest, TestUnknownExtension) {
 
 }  // namespace text_format_unittest
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

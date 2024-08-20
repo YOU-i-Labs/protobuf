@@ -62,7 +62,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -372,5 +371,4 @@ const char* FatalException::what() const throw() {
 #endif
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

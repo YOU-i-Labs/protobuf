@@ -41,7 +41,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -254,8 +253,7 @@ class PROTOBUF_EXPORT DefaultFieldComparator : public FieldComparator {
 
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

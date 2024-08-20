@@ -58,7 +58,6 @@
 #include <google/protobuf/stubs/hash.h>
 
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -4128,5 +4127,4 @@ void MessageGenerator::GenerateIsInitialized(io::Printer* printer) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

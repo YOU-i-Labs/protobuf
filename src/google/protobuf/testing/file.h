@@ -36,7 +36,6 @@
 
 #include <google/protobuf/stubs/common.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -101,7 +100,6 @@ class File {
 };
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_TESTING_FILE_H__

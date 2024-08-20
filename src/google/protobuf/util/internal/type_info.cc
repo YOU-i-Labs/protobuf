@@ -41,7 +41,6 @@
 #include <google/protobuf/stubs/status.h>
 #include <google/protobuf/stubs/statusor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -179,5 +178,4 @@ TypeInfo* TypeInfo::NewTypeInfo(TypeResolver* type_resolver) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

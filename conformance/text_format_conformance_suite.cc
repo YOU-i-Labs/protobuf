@@ -40,14 +40,13 @@
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
 using conformance::WireFormat;
-using yi::google::protobuf::Message;
-using yi::google::protobuf::TextFormat;
+using google::protobuf::Message;
+using google::protobuf::TextFormat;
 using protobuf_test_messages::proto2::TestAllTypesProto2;
 using protobuf_test_messages::proto2::UnknownToTestAllTypes;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using std::string;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -315,5 +314,4 @@ void TextFormatConformanceTestSuite::RunSuiteImpl() {
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -54,7 +54,6 @@
   #define PyInt_FromLong PyLong_FromLong
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -578,5 +577,4 @@ PyTypeObject RepeatedCompositeContainer_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -55,7 +55,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -350,7 +349,7 @@ Status ProtoStreamObjectSource::RenderTimestamp(
   }
 
   ow->RenderString(field_name,
-                   ::yi::google::protobuf::internal::FormatTime(seconds, nanos));
+                   ::google::protobuf::internal::FormatTime(seconds, nanos));
 
   return util::Status();
 }
@@ -742,7 +741,7 @@ void ProtoStreamObjectSource::InitRendererMap() {
       &ProtoStreamObjectSource::RenderStructListValue;
   (*renderers_)["google.protobuf.FieldMask"] =
       &ProtoStreamObjectSource::RenderFieldMask;
-  ::yi::google::protobuf::internal::OnShutdown(&DeleteRendererMap);
+  ::google::protobuf::internal::OnShutdown(&DeleteRendererMap);
 }
 
 void ProtoStreamObjectSource::DeleteRendererMap() {
@@ -1150,5 +1149,4 @@ const std::string FormatNanos(uint32 nanos, bool with_trailing_zeros) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

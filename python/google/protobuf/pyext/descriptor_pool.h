@@ -36,7 +36,6 @@
 #include <unordered_map>
 #include <google/protobuf/descriptor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -132,7 +131,6 @@ bool InitDescriptorPool();
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_POOL_H__

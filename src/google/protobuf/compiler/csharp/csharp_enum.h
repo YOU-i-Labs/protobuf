@@ -38,7 +38,6 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/io/printer.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -61,8 +60,7 @@ class EnumGenerator : public SourceGeneratorBase {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_ENUM_H__
 

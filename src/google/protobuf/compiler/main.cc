@@ -43,7 +43,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -104,8 +103,7 @@ int ProtobufMain(int argc, char* argv[]) {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 int main(int argc, char* argv[]) {
   return PROTOBUF_NAMESPACE_ID::compiler::ProtobufMain(argc, argv);

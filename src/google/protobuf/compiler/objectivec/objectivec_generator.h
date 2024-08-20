@@ -39,7 +39,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -72,8 +71,7 @@ class PROTOC_EXPORT ObjectiveCGenerator : public CodeGenerator {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

@@ -34,7 +34,6 @@
 #include <string>
 #include <utility>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -132,5 +131,4 @@ std::ostream& operator<<(std::ostream& os, const Status& x) {
 
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

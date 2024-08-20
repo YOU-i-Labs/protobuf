@@ -42,7 +42,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -68,8 +67,7 @@ class PROTOC_EXPORT JavaGenerator : public CodeGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

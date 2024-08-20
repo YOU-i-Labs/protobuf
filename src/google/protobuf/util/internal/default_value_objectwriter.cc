@@ -36,7 +36,6 @@
 #include <google/protobuf/util/internal/utility.h>
 #include <google/protobuf/stubs/map_util.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -628,5 +627,4 @@ void DefaultValueObjectWriter::RenderDataPiece(StringPiece name,
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

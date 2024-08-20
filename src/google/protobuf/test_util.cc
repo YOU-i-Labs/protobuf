@@ -40,10 +40,8 @@
 
 #include <google/protobuf/test_util.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

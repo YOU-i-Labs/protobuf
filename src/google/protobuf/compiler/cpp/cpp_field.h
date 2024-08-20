@@ -43,17 +43,14 @@
 #include <google/protobuf/compiler/cpp/cpp_options.h>
 #include <google/protobuf/descriptor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -229,7 +226,6 @@ class FieldGeneratorMap {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_FIELD_H__

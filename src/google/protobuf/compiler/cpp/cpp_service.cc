@@ -37,7 +37,6 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/stubs/strutil.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -105,7 +104,7 @@ void ServiceGenerator::GenerateInterface(io::Printer* printer) {
       "                ::$proto_ns$::RpcController* controller,\n"
       "                const ::$proto_ns$::Message* request,\n"
       "                ::$proto_ns$::Message* response,\n"
-      "                ::yi::google::protobuf::Closure* done);\n"
+      "                ::google::protobuf::Closure* done);\n"
       "const ::$proto_ns$::Message& GetRequestPrototype(\n"
       "  const ::$proto_ns$::MethodDescriptor* method) const;\n"
       "const ::$proto_ns$::Message& GetResponsePrototype(\n"
@@ -162,7 +161,7 @@ void ServiceGenerator::GenerateMethodSignatures(VirtualOrNon virtual_or_non,
         "$virtual$void $name$(::$proto_ns$::RpcController* controller,\n"
         "                     const $input_type$* request,\n"
         "                     $output_type$* response,\n"
-        "                     ::yi::google::protobuf::Closure* done);\n");
+        "                     ::google::protobuf::Closure* done);\n");
   }
 }
 
@@ -219,7 +218,7 @@ void ServiceGenerator::GenerateNotImplementedMethods(io::Printer* printer) {
         "void $classname$::$name$(::$proto_ns$::RpcController* controller,\n"
         "                         const $input_type$*,\n"
         "                         $output_type$*,\n"
-        "                         ::yi::google::protobuf::Closure* done) {\n"
+        "                         ::google::protobuf::Closure* done) {\n"
         "  controller->SetFailed(\"Method $name$() not implemented.\");\n"
         "  done->Run();\n"
         "}\n"
@@ -235,7 +234,7 @@ void ServiceGenerator::GenerateCallMethod(io::Printer* printer) {
       "                             ::$proto_ns$::RpcController* controller,\n"
       "                             const ::$proto_ns$::Message* request,\n"
       "                             ::$proto_ns$::Message* response,\n"
-      "                             ::yi::google::protobuf::Closure* done) {\n"
+      "                             ::google::protobuf::Closure* done) {\n"
       "  GOOGLE_DCHECK_EQ(method->service(), $file_level_service_descriptors$[$1$]);\n"
       "  switch(method->index()) {\n",
       index_in_metadata_);
@@ -314,7 +313,7 @@ void ServiceGenerator::GenerateStubMethods(io::Printer* printer) {
         "controller,\n"
         "                              const $input_type$* request,\n"
         "                              $output_type$* response,\n"
-        "                              ::yi::google::protobuf::Closure* done) {\n"
+        "                              ::google::protobuf::Closure* done) {\n"
         "  channel_->CallMethod(descriptor()->method($1$),\n"
         "                       controller, request, response, done);\n"
         "}\n",
@@ -325,5 +324,4 @@ void ServiceGenerator::GenerateStubMethods(io::Printer* printer) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

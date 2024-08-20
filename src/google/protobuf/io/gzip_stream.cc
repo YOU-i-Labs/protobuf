@@ -40,7 +40,6 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/logging.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -329,7 +328,6 @@ bool GzipOutputStream::Close() {
 
 }  // namespace io
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // HAVE_ZLIB

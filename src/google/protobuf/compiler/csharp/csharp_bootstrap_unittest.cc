@@ -53,7 +53,6 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -192,5 +191,4 @@ TEST(CsharpBootstrapTest, GeneratedCsharpDescriptorMatches) {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

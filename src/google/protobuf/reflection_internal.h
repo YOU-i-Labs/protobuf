@@ -35,7 +35,6 @@
 #include <google/protobuf/reflection.h>
 #include <google/protobuf/repeated_field.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -359,7 +358,6 @@ class RepeatedPtrFieldMessageAccessor final
 };
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_REFLECTION_INTERNAL_H__

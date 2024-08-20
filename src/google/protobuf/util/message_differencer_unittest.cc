@@ -59,7 +59,6 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -3704,5 +3703,4 @@ TEST(Anytest, TreatAsSet_DifferentType) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

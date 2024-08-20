@@ -43,7 +43,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -100,8 +99,7 @@ string PROTOC_EXPORT GetOutputFile(const FileDescriptor* descriptor,
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

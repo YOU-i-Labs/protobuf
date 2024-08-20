@@ -48,7 +48,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -230,7 +229,7 @@ void DeleteGeneratedTypeResolver() { delete generated_type_resolver_; }
 void InitGeneratedTypeResolver() {
   generated_type_resolver_ = NewTypeResolverForDescriptorPool(
       kTypeUrlPrefix, DescriptorPool::generated_pool());
-  ::yi::google::protobuf::internal::OnShutdown(&DeleteGeneratedTypeResolver);
+  ::google::protobuf::internal::OnShutdown(&DeleteGeneratedTypeResolver);
 }
 
 TypeResolver* GetGeneratedTypeResolver() {
@@ -279,5 +278,4 @@ util::Status JsonStringToMessage(StringPiece input, Message* message,
 
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

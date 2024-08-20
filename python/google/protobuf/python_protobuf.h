@@ -38,7 +38,6 @@
 
 #include <Python.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -53,7 +52,6 @@ Message* MutableCProtoInsidePyProto(PyObject* msg);
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__

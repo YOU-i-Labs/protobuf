@@ -65,7 +65,6 @@ using protobuf_unittest::TestEmptyMessage;
 using protobuf_unittest::TestOneof2;
 using protobuf_unittest_no_arena::TestNoArenaMessage;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1458,5 +1457,4 @@ TEST(ArenaTest, ArenaHooksSanity) {
 
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

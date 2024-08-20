@@ -38,7 +38,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -67,8 +66,7 @@ inline bool IsWrapperType(const FieldDescriptor* descriptor) {
 }  // namespace php
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

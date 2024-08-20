@@ -33,7 +33,6 @@
 
 #include <google/protobuf/stubs/port.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -116,7 +115,6 @@ struct CompileAssert {
 #define GOOGLE_COMPILE_ASSERT(expr, msg) static_assert(expr, #msg)
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_MACROS_H__

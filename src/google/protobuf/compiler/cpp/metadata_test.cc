@@ -41,7 +41,6 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -160,5 +159,4 @@ TEST_F(CppMetadataTest, CapturesMessageNames) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

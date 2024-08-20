@@ -38,7 +38,6 @@
   #define PyString_FromFormat PyUnicode_FromFormat
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -140,5 +139,4 @@ PyObject* NewFieldProperty(const FieldDescriptor* field_descriptor) {
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

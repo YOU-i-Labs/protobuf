@@ -39,7 +39,6 @@
 #include <vector>
 #include <google/protobuf/descriptor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -52,10 +51,8 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -98,7 +95,6 @@ class EnumGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_ENUM_H__

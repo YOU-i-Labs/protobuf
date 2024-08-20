@@ -39,7 +39,6 @@
 #include <string>
 #include <google/protobuf/compiler/java/java_field.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -49,10 +48,8 @@ class ClassNameResolver;  // name_resolver.h
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -134,7 +131,6 @@ class RepeatedImmutableEnumFieldLiteGenerator
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_ENUM_FIELD_LITE_H__

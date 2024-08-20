@@ -59,7 +59,6 @@
                        : PyBytes_AsStringAndSize(ob, (charpp), (sizep)))
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -476,5 +475,4 @@ PyTypeObject ExtensionIterator_Type = {
 };
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

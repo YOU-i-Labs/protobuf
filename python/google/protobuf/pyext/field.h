@@ -33,7 +33,6 @@
 
 #include <Python.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -55,7 +54,6 @@ PyObject* NewFieldProperty(const FieldDescriptor* field_descriptor);
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_FIELD_H__

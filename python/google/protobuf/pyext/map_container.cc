@@ -50,7 +50,6 @@
   #define PyInt_FromSize_t PyLong_FromSize_t
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -78,7 +77,7 @@ class MapReflectionFriend {
 struct MapIterator {
   PyObject_HEAD;
 
-  std::unique_ptr<::yi::google::protobuf::MapIterator> iter;
+  std::unique_ptr<::google::protobuf::MapIterator> iter;
 
   // A pointer back to the container, so we can notice changes to the version.
   // We own a ref on this.
@@ -929,7 +928,7 @@ PyObject* MapReflectionFriend::GetIterator(PyObject *_self) {
     Message* message = self->GetMutableMessage();
     const Reflection* reflection = message->GetReflection();
 
-    iter->iter.reset(new ::yi::google::protobuf::MapIterator(
+    iter->iter.reset(new ::google::protobuf::MapIterator(
         reflection->MapBegin(message, self->parent_field_descriptor)));
   }
 
@@ -1074,5 +1073,4 @@ bool InitMapContainers() {
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

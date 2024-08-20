@@ -73,7 +73,6 @@
 // Useful integer and floating point limits and type traits.
 // This is just for the documentation;
 // real members are defined in our specializations below.
-namespace yi {
 namespace google {
 namespace protobuf {
 template<typename T> struct MathLimits {
@@ -301,8 +300,7 @@ DECL_FP_LIMITS(long double, LDBL)
 
 // ========================================================================= //
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

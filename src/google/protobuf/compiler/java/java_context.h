@@ -38,7 +38,6 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/compiler/java/java_options.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 class FileDescriptor;
@@ -52,10 +51,8 @@ class ClassNameResolver;  // name_resolver.h
 }
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -111,7 +108,6 @@ class Context {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_CONTEXT_H__

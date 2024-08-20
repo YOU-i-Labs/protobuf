@@ -48,7 +48,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -77,8 +76,7 @@ PROTOBUF_EXPORT extern string StringPrintfVector(const char* format,
                                                  const std::vector<string>& v);
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

@@ -37,7 +37,6 @@
 #include <google/protobuf/stubs/status.h>
 #include <google/protobuf/stubs/statusor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -85,7 +84,6 @@ Status DoAssignOrReturn(T& lhs, StatusOr<T> result) {
 
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STATUS_H_

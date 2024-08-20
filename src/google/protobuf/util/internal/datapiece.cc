@@ -38,7 +38,6 @@
 #include <google/protobuf/stubs/mathlimits.h>
 #include <google/protobuf/stubs/mathutil.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -422,5 +421,4 @@ void DataPiece::InternalCopy(const DataPiece& other) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

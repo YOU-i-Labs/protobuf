@@ -36,7 +36,6 @@
 #include <google/protobuf/descriptor.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -574,5 +573,4 @@ TEST(NoFieldPresenceTest, OneofPresence) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

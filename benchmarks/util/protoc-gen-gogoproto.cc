@@ -7,14 +7,13 @@
 
 #include "google/protobuf/compiler/plugin.h"
 
-using yi::google::protobuf::FileDescriptorProto;
-using yi::google::protobuf::FileDescriptor;
-using yi::google::protobuf::DescriptorPool;
-using yi::google::protobuf::io::Printer;
-using yi::google::protobuf::util::SchemaGroupStripper;
-using yi::google::protobuf::util::EnumScrubber;
+using google::protobuf::FileDescriptorProto;
+using google::protobuf::FileDescriptor;
+using google::protobuf::DescriptorPool;
+using google::protobuf::io::Printer;
+using google::protobuf::util::SchemaGroupStripper;
+using google::protobuf::util::EnumScrubber;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -96,8 +95,7 @@ class GoGoProtoGenerator : public CodeGenerator {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 int main(int argc, char* argv[]) {
   google::protobuf::compiler::GoGoProtoGenerator generator;

@@ -36,7 +36,6 @@
 #include <google/protobuf/compiler/java/java_helpers.h>
 #include <google/protobuf/stubs/substitute.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -284,5 +283,4 @@ std::string ClassNameResolver::GetJavaImmutableClassName(
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

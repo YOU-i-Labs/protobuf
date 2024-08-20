@@ -32,7 +32,6 @@
 #include <google/protobuf/map_lite_test_util.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -88,5 +87,4 @@ TEST_F(LiteArenaTest, UnknownFieldMemLeak) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

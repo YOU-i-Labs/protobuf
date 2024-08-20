@@ -53,7 +53,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -333,8 +332,7 @@ void MapFieldSerializer(const uint8* base, uint32 offset, uint32 tag,
 
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

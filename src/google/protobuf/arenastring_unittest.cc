@@ -45,7 +45,6 @@
 #include <gtest/gtest.h>
 
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -134,5 +133,4 @@ TEST(ArenaStringPtrTest, ArenaStringPtrOnArenaNoSSO) {
 
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

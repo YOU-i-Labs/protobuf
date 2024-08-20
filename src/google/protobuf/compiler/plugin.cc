@@ -50,7 +50,6 @@
 #include <google/protobuf/io/io_win32.h>
 
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -58,7 +57,7 @@ namespace compiler {
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using yi::google::protobuf::io::win32::setmode;
+using google::protobuf::io::win32::setmode;
 #endif
 
 class GeneratorResponseContext : public GeneratorContext {
@@ -184,5 +183,4 @@ int PluginMain(int argc, char* argv[], const CodeGenerator* generator) {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -41,7 +41,6 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/stubs/strutil.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -472,5 +471,4 @@ void ImmutableServiceGenerator::GenerateBlockingMethodSignature(
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

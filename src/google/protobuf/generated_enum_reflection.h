@@ -50,15 +50,12 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 class EnumDescriptor;
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -93,8 +90,7 @@ PROTOBUF_EXPORT const std::string& NameOfEnum(const EnumDescriptor* descriptor,
 
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

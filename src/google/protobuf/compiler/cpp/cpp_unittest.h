@@ -42,12 +42,10 @@
 #ifndef GOOGLE_PROTOBUF_COMPILER_CPP_UNITTEST_H__
 #define GOOGLE_PROTOBUF_COMPILER_CPP_UNITTEST_H__
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace protobuf_unittest {}
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_UNITTEST_H__

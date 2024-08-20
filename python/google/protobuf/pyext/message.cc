@@ -95,7 +95,6 @@
 #endif
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -3130,5 +3129,4 @@ bool InitProto2MessageModule(PyObject *m) {
 
 }  // namespace python
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

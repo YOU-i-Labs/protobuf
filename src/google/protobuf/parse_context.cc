@@ -41,7 +41,6 @@
 
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -618,5 +617,4 @@ const char* UnknownFieldParse(uint32 tag,
 
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

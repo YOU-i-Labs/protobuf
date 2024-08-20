@@ -34,7 +34,6 @@
 #include <google/protobuf/util/internal/utility.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -311,5 +310,4 @@ TEST_F(JsonObjectWriterTest, TestWebsafeByteEncoding) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

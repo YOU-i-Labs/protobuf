@@ -49,7 +49,6 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/port_def.inc>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -444,8 +443,7 @@ class PROTOC_EXPORT CommandLineInterface {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

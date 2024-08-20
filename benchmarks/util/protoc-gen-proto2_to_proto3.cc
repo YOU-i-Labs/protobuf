@@ -7,16 +7,15 @@
 
 #include "google/protobuf/compiler/plugin.h"
 
-using yi::google::protobuf::FileDescriptorProto;
-using yi::google::protobuf::FileDescriptor;
-using yi::google::protobuf::DescriptorPool;
-using yi::google::protobuf::io::Printer;
-using yi::google::protobuf::util::SchemaGroupStripper;
-using yi::google::protobuf::util::EnumScrubber;
-using yi::google::protobuf::util::ExtensionStripper;
-using yi::google::protobuf::util::FieldScrubber;
+using google::protobuf::FileDescriptorProto;
+using google::protobuf::FileDescriptor;
+using google::protobuf::DescriptorPool;
+using google::protobuf::io::Printer;
+using google::protobuf::util::SchemaGroupStripper;
+using google::protobuf::util::EnumScrubber;
+using google::protobuf::util::ExtensionStripper;
+using google::protobuf::util::FieldScrubber;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -108,8 +107,7 @@ class Proto2ToProto3Generator final : public CodeGenerator {
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 int main(int argc, char* argv[]) {
   google::protobuf::compiler::Proto2ToProto3Generator generator;

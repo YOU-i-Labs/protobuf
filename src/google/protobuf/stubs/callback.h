@@ -10,7 +10,6 @@
 // ===================================================================
 // emulates google3/base/callback.h
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -577,8 +576,7 @@ inline ResultCallback2<R, A1, A2>* NewPermanentCallback(
 void PROTOBUF_EXPORT DoNothing();
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

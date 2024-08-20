@@ -33,7 +33,6 @@
 #include <gtest/gtest.h>
 
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -165,5 +164,4 @@ TEST(AnyTest, MoveAssignment) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

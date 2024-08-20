@@ -36,7 +36,6 @@
 #include <google/protobuf/io/zero_copy_stream.h>
 #include <google/protobuf/stubs/strutil.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -170,5 +169,4 @@ bool ObjectiveCGenerator::GenerateAll(const std::vector<const FileDescriptor*>& 
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

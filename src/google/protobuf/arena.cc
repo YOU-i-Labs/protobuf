@@ -45,7 +45,6 @@
 static const size_t kMinCleanupListElements = 8;
 static const size_t kMaxCleanupListElements = 64;  // 1kB on 64-bit.
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -413,5 +412,4 @@ void Arena::OnArenaAllocation(const std::type_info* allocated_type,
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

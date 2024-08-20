@@ -55,7 +55,6 @@
 #error "You cannot SWIG proto headers"
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -625,8 +624,7 @@ inline TextFormat::ParseInfoTree* TextFormat::CreateNested(
 }
 
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #include <google/protobuf/port_undef.inc>
 

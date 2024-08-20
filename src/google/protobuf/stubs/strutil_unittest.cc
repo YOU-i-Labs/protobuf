@@ -42,7 +42,6 @@
 #define snprintf _snprintf
 #endif
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -839,5 +838,4 @@ TEST(StrCat, Ints) {
 
 }  // anonymous namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

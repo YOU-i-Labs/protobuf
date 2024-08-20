@@ -40,7 +40,6 @@
 
 #include <google/protobuf/stubs/common.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 class FieldDescriptor;  // descriptor.h
@@ -54,10 +53,8 @@ namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -113,7 +110,6 @@ class ImmutableExtensionGenerator : public ExtensionGenerator {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_EXTENSION_H__

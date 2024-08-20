@@ -38,7 +38,6 @@
 
 using UNITTEST::TestAllTypes;
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -137,5 +136,4 @@ TEST(LITE_TEST_NAME, Swap) {
 
 }  // namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

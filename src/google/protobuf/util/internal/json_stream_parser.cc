@@ -45,7 +45,6 @@
 #include <google/protobuf/stubs/mathlimits.h>
 
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -881,5 +880,4 @@ JsonStreamParser::TokenType JsonStreamParser::GetNextTokenType() {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

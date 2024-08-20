@@ -38,7 +38,6 @@
 #include <google/protobuf/compiler/cpp/cpp_options.h>
 #include <google/protobuf/descriptor.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -57,7 +56,6 @@ class MessageLayoutHelper {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MESSAGE_LAYOUT_HELPER_H__

@@ -8,7 +8,7 @@
 
 #include <fstream>
 
-using yi::google::protobuf::util::GogoDataStripper;
+using google::protobuf::util::GogoDataStripper;
 
 std::string ReadFile(const std::string& name) {
   std::ifstream file(name.c_str());

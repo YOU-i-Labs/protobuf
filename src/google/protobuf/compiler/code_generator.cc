@@ -40,7 +40,6 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/stubs/strutil.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -120,5 +119,4 @@ void ParseGeneratorParameter(
 
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

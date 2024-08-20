@@ -55,7 +55,6 @@
 // implementation that knew more about ::std::string's internals could integrate
 // more closely with the arena allocator.
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -397,8 +396,7 @@ inline void ArenaStringPtr::AssignWithDefault(
 
 }  // namespace internal
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
 
 
 #include <google/protobuf/port_undef.inc>

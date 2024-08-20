@@ -32,7 +32,6 @@
 
 #include <google/protobuf/util/internal/datapiece.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -90,5 +89,4 @@ void ObjectWriter::RenderDataPieceTo(const DataPiece& data,
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

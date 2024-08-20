@@ -38,7 +38,6 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -150,5 +149,4 @@ TEST(StringPrintfTest, LargeBuf) {
 
 }  // anonymous namespace
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google

@@ -41,7 +41,6 @@
 #include <google/protobuf/compiler/csharp/csharp_options.h>
 #include <google/protobuf/compiler/csharp/csharp_wrapper_field.h>
 
-namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -264,5 +263,4 @@ void WrapperOneofFieldGenerator::GenerateSerializedSizeCode(io::Printer* printer
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-} // namespace google
-} // namespace yi
+}  // namespace google
