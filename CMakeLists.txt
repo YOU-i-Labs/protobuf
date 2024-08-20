@@ -30,13 +30,22 @@ project(protobuf C CXX)
 
 hunter_add_package(ZLIB)
 
+if(protobuf_DEPRECATED_CMAKE_SUBDIRECTORY_USAGE)
+  if(CMAKE_PROJECT_NAME STREQUAL "protobuf")
+    get_filename_component(CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR} DIRECTORY)
+  endif()
+  get_filename_component(CMAKE_CURRENT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
+  get_filename_component(PROJECT_SOURCE_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
+  get_filename_component(protobuf_SOURCE_DIR ${protobuf_SOURCE_DIR} DIRECTORY)
+endif()
+
 # Add c++11 flags
 if (CYGWIN)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 elseif (TIZEN_NACL)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 else()
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 11)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
   set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
@@ -291,25 +300,25 @@ if (MSVC)
     set(CMAKE_RC_COMPILE_OBJECT "<CMAKE_RC_COMPILER> ${rc_flags} <DEFINES> /fo<OBJECT> <SOURCE>")
   endif()
 
+  # Generate the version.rc file used elsewhere.
   configure_file(${protobuf_SOURCE_DIR}/cmake/version.rc.in ${CMAKE_CURRENT_BINARY_DIR}/version.rc @ONLY)
-endif (MSVC)
+  set(protobuf_version_rc_file ${CMAKE_CURRENT_BINARY_DIR}/version.rc)
 
-
-set(protobuf_source_dir ${protobuf_SOURCE_DIR})
-
-include_directories(
-  ${ZLIB_INCLUDE_DIRECTORIES}
-  ${protobuf_BINARY_DIR}
-  ${protobuf_source_dir}/src)
-
-if (MSVC)
   # Add the "lib" prefix for generated .lib outputs.
   set(LIB_PREFIX lib)
 else (MSVC)
+  # No version.rc file.
+  set(protobuf_version_rc_file)
+
   # When building with "make", "lib" prefix will be added automatically by
   # the build tool.
   set(LIB_PREFIX)
 endif (MSVC)
+
+include_directories(
+  ${ZLIB_INCLUDE_DIRECTORIES}
+  ${protobuf_BINARY_DIR}
+  ${protobuf_SOURCE_DIR}/src)
 
 if (protobuf_UNICODE)
   add_definitions(-DUNICODE -D_UNICODE)
