@@ -33,6 +33,7 @@
 
 #include <string>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -76,6 +77,7 @@ struct Options {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_OPTIONS_H__

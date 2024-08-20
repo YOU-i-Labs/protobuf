@@ -30,6 +30,7 @@
 
 #include <google/protobuf/map.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -38,4 +39,5 @@ void* const kGlobalEmptyTable[kGlobalEmptyTableSize] = {nullptr};
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

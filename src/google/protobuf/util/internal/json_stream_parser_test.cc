@@ -41,13 +41,14 @@
 #include <google/protobuf/stubs/status.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 namespace converter {
 
 using ParseErrorType =
-    ::google::protobuf::util::converter::JsonStreamParser::ParseErrorType;
+    ::yi::google::protobuf::util::converter::JsonStreamParser::ParseErrorType;
 
 
 // Tests for the JSON Stream Parser. These tests are intended to be
@@ -976,4 +977,5 @@ TEST_F(JsonStreamParserTest, DeepNestJsonExceedLimit) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -42,6 +42,7 @@
 #include <google/protobuf/pyext/message.h>
 #include <google/protobuf/pyext/scoped_pyobject_ptr.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -352,4 +353,5 @@ PyTypeObject PyUnknownField_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

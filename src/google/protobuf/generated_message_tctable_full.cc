@@ -40,6 +40,7 @@
 #include <google/protobuf/port_def.inc>
 // clang-format on
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -50,4 +51,5 @@ const char* TcParser::GenericFallback(PROTOBUF_TC_PARAM_DECL) {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

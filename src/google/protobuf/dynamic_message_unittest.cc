@@ -54,6 +54,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/test_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -324,4 +325,5 @@ TEST_F(DynamicMessageTest, Proto3) {
 INSTANTIATE_TEST_SUITE_P(UseArena, DynamicMessageTest, ::testing::Bool());
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -40,14 +40,17 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -95,7 +98,8 @@ PROTOC_EXPORT std::string EscapeJavadoc(const std::string& input);
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -39,6 +39,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1988,4 +1989,5 @@ void TestUtilLite::ExpectPackedExtensionsModified(
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

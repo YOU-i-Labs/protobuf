@@ -49,6 +49,7 @@
 #include "google/protobuf/compiler/java/helpers.h"
 #include "google/protobuf/compiler/java/name_resolver.h"
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -1169,4 +1170,5 @@ std::string RepeatedImmutableStringFieldGenerator::GetBoxedType() const {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -40,6 +40,7 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -191,7 +192,8 @@ inline uint64_t ToHost(uint64_t value) {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

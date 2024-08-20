@@ -56,6 +56,7 @@
 // Must be last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -1379,4 +1380,5 @@ void FileGenerator::GenerateProto2NamespaceEnumSpecializations(
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

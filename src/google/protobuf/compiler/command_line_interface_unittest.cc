@@ -71,6 +71,7 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -78,12 +79,12 @@ namespace compiler {
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::access;
-using google::protobuf::io::win32::close;
-using google::protobuf::io::win32::dup;
-using google::protobuf::io::win32::dup2;
-using google::protobuf::io::win32::open;
-using google::protobuf::io::win32::write;
+using yi::google::protobuf::io::win32::access;
+using yi::google::protobuf::io::win32::close;
+using yi::google::protobuf::io::win32::dup;
+using yi::google::protobuf::io::win32::dup2;
+using yi::google::protobuf::io::win32::open;
+using yi::google::protobuf::io::win32::write;
 #endif
 
 // Disable the whole test when we use tcmalloc for "draconian" heap checks, in
@@ -2784,4 +2785,5 @@ INSTANTIATE_TEST_SUITE_P(FileDescriptorSetSource, EncodeDecodeTest,
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

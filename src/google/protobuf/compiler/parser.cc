@@ -54,6 +54,7 @@
 #include <google/protobuf/stubs/map_util.h>
 #include <google/protobuf/stubs/hash.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -2443,4 +2444,5 @@ void SourceLocationTable::Clear() { location_map_.clear(); }
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

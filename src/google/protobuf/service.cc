@@ -34,6 +34,7 @@
 
 #include <google/protobuf/service.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -42,4 +43,5 @@ RpcChannel::~RpcChannel() {}
 RpcController::~RpcController() {}
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

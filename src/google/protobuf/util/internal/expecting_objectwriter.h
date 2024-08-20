@@ -57,6 +57,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/util/internal/object_writer.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -245,6 +246,7 @@ class ExpectingObjectWriter : public ObjectWriter {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_UTIL_INTERNAL_EXPECTING_OBJECTWRITER_H__

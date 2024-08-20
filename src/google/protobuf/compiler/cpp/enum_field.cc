@@ -40,6 +40,7 @@
 #include <google/protobuf/compiler/cpp/field.h>
 #include <google/protobuf/compiler/cpp/helpers.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -448,4 +449,5 @@ void RepeatedEnumFieldGenerator::GenerateCopyAggregateInitializer(
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

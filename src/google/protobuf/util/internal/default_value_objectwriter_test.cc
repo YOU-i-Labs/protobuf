@@ -36,6 +36,7 @@
 #include <google/protobuf/util/internal/type_info_test_helper.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -188,4 +189,5 @@ TEST_P(DefaultValueObjectWriterSuppressListTest, Empty) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

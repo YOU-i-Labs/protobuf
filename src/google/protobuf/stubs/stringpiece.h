@@ -156,6 +156,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace stringpiece_internal {
@@ -380,10 +381,11 @@ extern std::ostream& operator<<(std::ostream& o, StringPiece piece);
 
 }  // namespace stringpiece_internal
 
-using ::google::protobuf::stringpiece_internal::StringPiece;
+using ::yi::google::protobuf::stringpiece_internal::StringPiece;
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START
 template<> struct hash<StringPiece> {

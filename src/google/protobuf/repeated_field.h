@@ -67,6 +67,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -498,7 +499,7 @@ class RepeatedField final {
   using FastAdder = FastAdderImpl<>;
 
   friend class TestRepeatedFieldHelper;
-  friend class ::google::protobuf::internal::ParseContext;
+  friend class ::yi::google::protobuf::internal::ParseContext;
 };
 
 namespace internal {
@@ -1212,7 +1213,8 @@ extern template class PROTOBUF_EXPORT_TEMPLATE_DECLARE RepeatedIterator<double>;
 }  // namespace internal
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -47,6 +47,7 @@
 #include <google/protobuf/stubs/strutil.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -56,4 +57,5 @@ using internal::InlinedStringField;
 namespace {
 }  // namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

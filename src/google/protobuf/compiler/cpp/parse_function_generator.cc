@@ -38,14 +38,15 @@
 #include <google/protobuf/wire_format.h>
 #include <google/protobuf/compiler/cpp/helpers.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
 namespace cpp {
 
 namespace {
-using google::protobuf::internal::WireFormat;
-using google::protobuf::internal::WireFormatLite;
+using yi::google::protobuf::internal::WireFormat;
+using yi::google::protobuf::internal::WireFormatLite;
 
 std::vector<const FieldDescriptor*> GetOrderedFields(
     const Descriptor* descriptor, const Options& options) {
@@ -1294,7 +1295,7 @@ void ParseFunctionGenerator::GenerateLengthDelim(Formatter& format,
               "  ::$proto_ns$::internal::LazyField> parse_helper(\n"
               "    $1$::default_instance(),\n"
               "    $msg$GetArenaForAllocation(),\n"
-              "    ::google::protobuf::internal::LazyVerifyOption::$2$,\n"
+              "    ::yi::google::protobuf::internal::LazyVerifyOption::$2$,\n"
               "    lazy_field);\n"
               "ptr = ctx->ParseMessage(&parse_helper, ptr);\n",
               FieldMessageTypeName(field, options_),
@@ -1722,4 +1723,5 @@ std::string FieldParseFunctionName(
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

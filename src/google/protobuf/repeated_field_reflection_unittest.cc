@@ -40,6 +40,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/test_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -706,4 +707,5 @@ TEST(RepeatedFieldReflectionTest, RepeatedFieldRefDynamicMessage) {
 
 }  // namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

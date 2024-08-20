@@ -68,6 +68,7 @@
 
 using ::testing::AnyOf;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -8425,6 +8426,7 @@ TEST_F(LazilyBuildDependenciesTest, Dependency) {
 
 }  // namespace descriptor_unittest
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

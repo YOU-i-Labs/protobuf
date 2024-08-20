@@ -40,6 +40,7 @@
 
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -79,4 +80,5 @@ double NoLocaleStrtod(const char* str, char** endptr) {
 
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

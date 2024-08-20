@@ -43,6 +43,7 @@
 #include <google/protobuf/compiler/cpp/helpers.h>
 #include <google/protobuf/compiler/cpp/names.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -435,4 +436,5 @@ void EnumGenerator::GenerateMethods(int idx, io::Printer* printer) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -44,16 +44,16 @@
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::Message;
-using google::protobuf::MessageFactory;
-using google::protobuf::TextFormat;
-using google::protobuf::util::BinaryToJsonString;
-using google::protobuf::util::JsonParseOptions;
-using google::protobuf::util::JsonToBinaryString;
-using google::protobuf::util::NewTypeResolverForDescriptorPool;
-using google::protobuf::util::TypeResolver;
+using yi::google::protobuf::Descriptor;
+using yi::google::protobuf::DescriptorPool;
+using yi::google::protobuf::Message;
+using yi::google::protobuf::MessageFactory;
+using yi::google::protobuf::TextFormat;
+using yi::google::protobuf::util::BinaryToJsonString;
+using yi::google::protobuf::util::JsonParseOptions;
+using yi::google::protobuf::util::JsonToBinaryString;
+using yi::google::protobuf::util::NewTypeResolverForDescriptorPool;
+using yi::google::protobuf::util::TypeResolver;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using protobuf_test_messages::proto2::TestAllTypesProto2;
 using std::string;
@@ -72,6 +72,7 @@ bool verbose = false;
 TypeResolver* type_resolver;
 string* type_url;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -252,7 +253,8 @@ bool DoTestIo() {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 int main() {
   type_resolver = NewTypeResolverForDescriptorPool(

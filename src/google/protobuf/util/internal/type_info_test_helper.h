@@ -42,6 +42,7 @@
 #include <google/protobuf/util/internal/type_info.h>
 #include <google/protobuf/util/type_resolver.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -91,6 +92,7 @@ class TypeInfoTestHelper {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_UTIL_INTERNAL_TYPE_INFO_TEST_HELPER_H__

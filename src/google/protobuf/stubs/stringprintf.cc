@@ -40,6 +40,7 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/logging.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -172,4 +173,5 @@ std::string StringPrintfVector(const char* format,
                       cstr[30], cstr[31]);
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

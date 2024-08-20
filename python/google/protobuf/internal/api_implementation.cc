@@ -31,6 +31,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -108,4 +109,5 @@ PyMODINIT_FUNC PyInit__api_implementation() {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -31,6 +31,7 @@
 #ifndef GOOGLE_PROTOBUF_MACROS_H__
 #define GOOGLE_PROTOBUF_MACROS_H__
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -88,6 +89,7 @@ namespace protobuf {
    static_cast<size_t>(!(sizeof(a) % sizeof(*(a)))))
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_MACROS_H__

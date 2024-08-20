@@ -35,6 +35,7 @@
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/parse_context.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -280,6 +281,7 @@ const char* ExtensionSet::ParseMessageSetItemTmpl(
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_EXTENSION_SET_INL_H__

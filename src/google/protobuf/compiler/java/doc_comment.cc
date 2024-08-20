@@ -40,6 +40,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/descriptor.pb.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -441,4 +442,5 @@ void WriteMethodDocComment(io::Printer* printer,
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

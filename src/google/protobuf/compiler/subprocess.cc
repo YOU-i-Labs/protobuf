@@ -49,6 +49,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/io/io_win32.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -495,4 +496,5 @@ bool Subprocess::Communicate(const Message& input, Message* output,
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

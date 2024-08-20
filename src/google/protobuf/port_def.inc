@@ -198,14 +198,16 @@
 #if defined(PROTOBUF_NAMESPACE) || defined(PROTOBUF_NAMESPACE_ID)
 #error PROTOBUF_NAMESPACE or PROTOBUF_NAMESPACE_ID was previously defined
 #endif
-#define PROTOBUF_NAMESPACE "google::protobuf"
-#define PROTOBUF_NAMESPACE_ID google::protobuf
+#define PROTOBUF_NAMESPACE "yi::google::protobuf"
+#define PROTOBUF_NAMESPACE_ID yi::google::protobuf
 #define PROTOBUF_NAMESPACE_OPEN \
+  namespace yi { \
   namespace google {            \
   namespace protobuf {
 #define PROTOBUF_NAMESPACE_CLOSE \
   } /* namespace protobuf */     \
-  } /* namespace google */
+  } /* namespace google */ \
+  } /* namespace yi */
 
 #ifdef PROTOBUF_ALWAYS_INLINE
 #error PROTOBUF_ALWAYS_INLINE was previously defined
@@ -782,10 +784,10 @@
 #endif
 
 #define PROTOBUF_TC_PARAM_DECL                                 \
-  ::google::protobuf::MessageLite *msg, const char *ptr,                 \
-      ::google::protobuf::internal::ParseContext *ctx,                   \
-      const ::google::protobuf::internal::TcParseTableBase *table,       \
-      uint64_t hasbits, ::google::protobuf::internal::TcFieldData data
+  ::yi::google::protobuf::MessageLite *msg, const char *ptr,                 \
+      ::yi::google::protobuf::internal::ParseContext *ctx,                   \
+      const ::yi::google::protobuf::internal::TcParseTableBase *table,       \
+      uint64_t hasbits, ::yi::google::protobuf::internal::TcFieldData data
 
 #ifdef PROTOBUF_UNUSED
 #error PROTOBUF_UNUSED was previously defined

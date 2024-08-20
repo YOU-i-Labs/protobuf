@@ -51,6 +51,7 @@
 #include <google/protobuf/descriptor_database.h>
 #include <google/protobuf/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -140,6 +141,7 @@ inline const char* PyProtoAPICapsuleName() {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_PROTO_API_H__

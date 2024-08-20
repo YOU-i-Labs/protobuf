@@ -39,6 +39,7 @@
 
 #include <google/protobuf/pyext/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -73,6 +74,7 @@ extern PyTypeObject PyUnknownField_Type;
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_UNKNOWN_FIELD_SET_H__

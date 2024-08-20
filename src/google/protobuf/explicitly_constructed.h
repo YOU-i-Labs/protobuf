@@ -42,6 +42,7 @@
 #include <google/protobuf/port_def.inc>
 // clang-format on
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -90,7 +91,8 @@ using ExplicitlyConstructedArenaString = ExplicitlyConstructed<std::string, 8>;
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

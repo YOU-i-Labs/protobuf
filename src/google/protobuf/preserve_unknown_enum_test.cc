@@ -35,6 +35,7 @@
 #include <google/protobuf/dynamic_message.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -287,4 +288,5 @@ TEST(PreserveUnknownEnumTest, SupportsUnknownEnumValuesAPI) {
   EXPECT_TRUE(new_reflection->SupportsUnknownEnumValues());
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

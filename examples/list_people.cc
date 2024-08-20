@@ -9,7 +9,7 @@
 
 using namespace std;
 
-using google::protobuf::util::TimeUtil;
+using yi::google::protobuf::util::TimeUtil;
 
 // Iterates though all people in the AddressBook and prints info about them.
 void ListPeople(const tutorial::AddressBook& address_book) {

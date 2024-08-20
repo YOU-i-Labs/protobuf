@@ -34,6 +34,7 @@
 
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -53,4 +54,5 @@ TEST(JavaDocCommentTest, Escaping) {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

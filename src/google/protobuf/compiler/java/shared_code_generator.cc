@@ -44,6 +44,7 @@
 #include <google/protobuf/compiler/java/names.h>
 #include <google/protobuf/descriptor.pb.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -195,4 +196,5 @@ void SharedCodeGenerator::GenerateDescriptors(io::Printer* printer) {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

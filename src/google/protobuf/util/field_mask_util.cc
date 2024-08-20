@@ -39,11 +39,12 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 
-using google::protobuf::FieldMask;
+using yi::google::protobuf::FieldMask;
 
 std::string FieldMaskUtil::ToString(const FieldMask& mask) {
   return Join(mask.paths(), ",");
@@ -717,4 +718,5 @@ bool FieldMaskUtil::TrimMessage(const FieldMask& mask, Message* message,
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

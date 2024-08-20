@@ -69,6 +69,7 @@ using protobuf_unittest::TestAllTypes;
 using protobuf_unittest::TestEmptyMessage;
 using protobuf_unittest::TestOneof2;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1629,6 +1630,7 @@ TEST(ArenaTest, ArenaHooksWhenAllocationsNotNeeded) {
 
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

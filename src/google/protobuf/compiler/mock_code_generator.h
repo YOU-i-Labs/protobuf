@@ -38,12 +38,15 @@
 
 #include <google/protobuf/compiler/code_generator.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class FileDescriptor;
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -131,6 +134,7 @@ class MockCodeGenerator : public CodeGenerator {
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_MOCK_CODE_GENERATOR_H__

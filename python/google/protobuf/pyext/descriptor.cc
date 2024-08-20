@@ -58,6 +58,7 @@
               : 0)                                               \
        : PyBytes_AsStringAndSize(ob, (charpp), (sizep)))
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -2037,4 +2038,5 @@ bool InitDescriptor() {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

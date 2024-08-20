@@ -57,13 +57,16 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class MapKey;           // map_field.h
 class UnknownFieldSet;  // unknown_field_set.h
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -407,7 +410,8 @@ uint8_t* SerializeMapKeyWithCachedSizes(const FieldDescriptor* field,
                                         io::EpsCopyOutputStream* stream);
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

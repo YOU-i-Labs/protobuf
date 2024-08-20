@@ -40,6 +40,7 @@
 // Must be last.
 #include <google/protobuf/port_def.inc>  // NOLINT
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -83,7 +84,8 @@ inline char* string_as_array(std::string* str) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>  // NOLINT
 

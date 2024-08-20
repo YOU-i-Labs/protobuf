@@ -36,6 +36,7 @@
 
 #define EXPECT_EQ GOOGLE_CHECK_EQ
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -48,4 +49,5 @@ NoHeapChecker::~NoHeapChecker() {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

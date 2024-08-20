@@ -38,6 +38,7 @@
 
 using UNITTEST::TestAllTypes;
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -146,4 +147,5 @@ TEST(LITE_TEST_NAME, OneofHazzers) {
 
 }  // namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

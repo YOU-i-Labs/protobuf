@@ -39,6 +39,7 @@
 
 #include <google/protobuf/pyext/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -104,6 +105,7 @@ int AssignSubscript(RepeatedCompositeContainer* self,
 }  // namespace repeated_composite_container
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__

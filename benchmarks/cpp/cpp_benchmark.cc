@@ -43,11 +43,11 @@
 #define SUFFIX ".pb"
 
 using benchmarks::BenchmarkDataset;
-using google::protobuf::Arena;
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::Message;
-using google::protobuf::MessageFactory;
+using yi::google::protobuf::Arena;
+using yi::google::protobuf::Descriptor;
+using yi::google::protobuf::DescriptorPool;
+using yi::google::protobuf::Message;
+using yi::google::protobuf::MessageFactory;
 
 class Fixture : public benchmark::Fixture {
  public:

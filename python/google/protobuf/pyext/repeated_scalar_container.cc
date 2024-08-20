@@ -49,6 +49,7 @@
 #define PyString_AsString(ob) \
   (PyUnicode_Check(ob) ? PyUnicode_AsUTF8(ob) : PyBytes_AsString(ob))
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -771,4 +772,5 @@ PyTypeObject RepeatedScalarContainer_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -42,6 +42,7 @@
 #include <google/protobuf/util/internal/utility.h>
 #include <google/protobuf/stubs/mathutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -438,4 +439,5 @@ void DataPiece::InternalCopy(const DataPiece& other) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

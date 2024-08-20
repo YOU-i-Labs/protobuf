@@ -40,6 +40,7 @@
 
 #include <string>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -96,5 +97,6 @@ std::string CapitalizedFieldName(const FieldDescriptor* descriptor);
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_NAMES_H__

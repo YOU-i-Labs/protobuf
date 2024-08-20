@@ -32,6 +32,7 @@
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -381,4 +382,5 @@ TEST(ObjCHelper, ParseSimple_RejectLinesNoMessage) {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

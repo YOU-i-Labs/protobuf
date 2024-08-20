@@ -33,6 +33,7 @@
 #include <google/protobuf/map_lite_unittest.pb.h>
 #include <google/protobuf/map_test_util_impl.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -91,4 +92,5 @@ void MapLiteTestUtil::ExpectMapFieldsModified(
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

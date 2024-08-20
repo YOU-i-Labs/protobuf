@@ -46,6 +46,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/stubs/map_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -233,4 +234,5 @@ void EnumLiteGenerator::Generate(io::Printer* printer) {
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

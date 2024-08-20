@@ -37,6 +37,7 @@
 // Must include last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1668,6 +1669,7 @@ void MapReflectionTester::ExpectClearViaReflectionIterator(Message* message) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

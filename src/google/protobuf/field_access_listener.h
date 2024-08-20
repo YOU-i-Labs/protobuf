@@ -37,6 +37,7 @@
 #include <google/protobuf/message_lite.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -154,15 +155,18 @@ struct NoOpAccessListener {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #ifndef REPLACE_PROTO_LISTENER_IMPL
+namespace yi {
 namespace google {
 namespace protobuf {
 template <class T>
 using AccessListener = NoOpAccessListener<T>;
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 #else
 // You can put your implementations of hooks/listeners here.
 // All hooks are subject to approval by protobuf-team@.

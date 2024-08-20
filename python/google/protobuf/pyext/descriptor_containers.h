@@ -37,6 +37,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -105,6 +106,7 @@ PyObject* NewServiceMethodsByName(const ServiceDescriptor* descriptor);
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__

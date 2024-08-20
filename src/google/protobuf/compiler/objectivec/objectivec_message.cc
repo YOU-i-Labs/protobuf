@@ -43,6 +43,7 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/descriptor.pb.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -630,4 +631,5 @@ void MessageGenerator::GenerateSource(io::Printer* printer) {
 }  // namespace objectivec
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

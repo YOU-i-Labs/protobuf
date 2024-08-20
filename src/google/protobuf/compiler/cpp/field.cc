@@ -52,6 +52,7 @@
 #include <google/protobuf/compiler/cpp/message_field.h>
 #include <google/protobuf/descriptor.pb.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -418,4 +419,5 @@ const FieldGenerator& FieldGeneratorMap::get(
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -54,6 +54,7 @@
 #error "You cannot SWIG proto headers"
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 class MapKey;
@@ -62,8 +63,10 @@ class MessageLayoutInspector;
 class Message;
 struct Metadata;
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -347,7 +350,8 @@ struct PROTOBUF_EXPORT AddDescriptorsRunner {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

@@ -46,6 +46,7 @@
 // Must come last:
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -305,7 +306,8 @@ static_assert(offsetof(TcParseTable<1>, fast_entries) ==
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

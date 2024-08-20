@@ -44,6 +44,7 @@
 
 #include <google/protobuf/stubs/strutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -543,4 +544,5 @@ TEST(ReflectionOpsTest, GenericSwap) {
 }  // namespace
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

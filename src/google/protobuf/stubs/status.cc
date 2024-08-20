@@ -34,6 +34,7 @@
 #include <string>
 #include <utility>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -259,4 +260,5 @@ Status UnknownError(StringPiece message) {
 }  // namespace status_internal
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

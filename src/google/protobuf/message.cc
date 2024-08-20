@@ -63,6 +63,7 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -222,7 +223,7 @@ namespace {
 
 
 #define HASH_MAP std::unordered_map
-#define STR_HASH_FXN hash<::google::protobuf::StringPiece>
+#define STR_HASH_FXN hash<::yi::google::protobuf::StringPiece>
 
 
 class GeneratedMessageFactory final : public MessageFactory {
@@ -399,6 +400,7 @@ PROTOBUF_NOINLINE
 }  // namespace internal
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

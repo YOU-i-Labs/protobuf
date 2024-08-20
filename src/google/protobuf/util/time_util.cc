@@ -42,12 +42,13 @@
 // Must go after other includes.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
 
-using google::protobuf::Duration;
-using google::protobuf::Timestamp;
+using yi::google::protobuf::Duration;
+using yi::google::protobuf::Timestamp;
 
 namespace {
 static const int kNanosPerSecond = 1000000000;
@@ -117,15 +118,15 @@ std::string FormatNanos(int32_t nanos) {
 }
 
 std::string FormatTime(int64_t seconds, int32_t nanos) {
-  return ::google::protobuf::internal::FormatTime(seconds, nanos);
+  return ::yi::google::protobuf::internal::FormatTime(seconds, nanos);
 }
 
 bool ParseTime(const std::string& value, int64_t* seconds, int32_t* nanos) {
-  return ::google::protobuf::internal::ParseTime(value, seconds, nanos);
+  return ::yi::google::protobuf::internal::ParseTime(value, seconds, nanos);
 }
 
 void CurrentTime(int64_t* seconds, int32_t* nanos) {
-  return ::google::protobuf::internal::GetCurrentTime(seconds, nanos);
+  return ::yi::google::protobuf::internal::GetCurrentTime(seconds, nanos);
 }
 
 // Truncates the remainder part after division.
@@ -372,8 +373,10 @@ timeval TimeUtil::DurationToTimeval(const Duration& value) {
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -511,4 +514,5 @@ Duration operator-(const Timestamp& t1, const Timestamp& t2) {
                                     t1.nanos() - t2.nanos());
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

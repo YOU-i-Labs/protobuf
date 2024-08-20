@@ -48,6 +48,7 @@
 // This file is logically internal-only and should only be used by protobuf
 // generated code.
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -206,7 +207,8 @@ struct WeakRepeatedPtrField {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

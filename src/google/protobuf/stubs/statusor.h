@@ -80,6 +80,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -242,11 +243,12 @@ inline const T& StatusOr<T>::value() const {
 
 }  // namespace statusor_internal
 
-using ::google::protobuf::util::statusor_internal::StatusOr;
+using ::yi::google::protobuf::util::statusor_internal::StatusOr;
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

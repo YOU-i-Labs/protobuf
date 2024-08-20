@@ -35,6 +35,7 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/descriptor.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -47,5 +48,6 @@ namespace csharp {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__

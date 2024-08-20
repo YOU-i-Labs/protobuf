@@ -40,6 +40,7 @@
 #include <google/protobuf/compiler/annotation_test_util.h>
 #include <google/protobuf/compiler/cpp/helpers.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -158,4 +159,5 @@ TEST_F(CppMetadataTest, CapturesMessageNames) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

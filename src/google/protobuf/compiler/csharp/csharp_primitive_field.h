@@ -34,6 +34,7 @@
 #include <google/protobuf/compiler/code_generator.h>
 #include <google/protobuf/compiler/csharp/csharp_field_base.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -89,7 +90,8 @@ class PrimitiveOneofFieldGenerator : public PrimitiveFieldGenerator {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_PRIMITIVE_FIELD_H__
 

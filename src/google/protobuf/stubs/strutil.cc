@@ -57,6 +57,7 @@
 #define snprintf _snprintf
 #endif
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -2476,4 +2477,5 @@ double NoLocaleStrtod(const char *str, char **endptr) {
 }  // namespace internal
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

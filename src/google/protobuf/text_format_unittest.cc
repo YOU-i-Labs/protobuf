@@ -66,6 +66,7 @@
 // Must be included last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -77,7 +78,7 @@ extern PROTOBUF_EXPORT std::atomic<bool> enable_debug_text_format_marker;
 // Can't use an anonymous namespace here due to brokenness of Tru64 compiler.
 namespace text_format_unittest {
 
-using ::google::protobuf::internal::kDebugStringSilentMarker;
+using ::yi::google::protobuf::internal::kDebugStringSilentMarker;
 
 // A basic string with different escapable characters for testing.
 const std::string kEscapeTestString =
@@ -2275,6 +2276,7 @@ TEST(TextFormatFloatingPointTest, PreservesNegative0) {
 
 }  // namespace text_format_unittest
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

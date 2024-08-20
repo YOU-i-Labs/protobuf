@@ -37,6 +37,7 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/descriptor.pb.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -128,4 +129,5 @@ template std::string NamePrefixedWithNestedTypes<EnumDescriptor>(
 }  // namespace python
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

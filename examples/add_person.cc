@@ -10,7 +10,7 @@
 
 using namespace std;
 
-using google::protobuf::util::TimeUtil;
+using yi::google::protobuf::util::TimeUtil;
 
 // This function fills in a Person message based on user input.
 void PromptForAddress(tutorial::Person* person) {

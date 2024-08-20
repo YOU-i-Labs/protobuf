@@ -37,6 +37,7 @@
 
 #include <google/protobuf/stubs/logging.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace stringpiece_internal {
@@ -253,4 +254,5 @@ const StringPiece::size_type StringPiece::npos = size_type(-1);
 
 }  // namespace stringpiece_internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

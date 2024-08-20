@@ -54,6 +54,7 @@
 // clang-format off
 #include <google/protobuf/port_def.inc>  // must be last.
 // clang-format on
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -1962,6 +1963,7 @@ LazyEagerVerifyFnType FindExtensionLazyEagerVerifyFn(
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>

@@ -45,12 +45,12 @@ namespace proto2_messages = protobuf_test_messages::proto2;
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
 using conformance::WireFormat;
-using google::protobuf::Descriptor;
-using google::protobuf::FieldDescriptor;
-using google::protobuf::Message;
-using google::protobuf::TextFormat;
-using google::protobuf::internal::WireFormatLite;
-using google::protobuf::util::NewTypeResolverForDescriptorPool;
+using yi::google::protobuf::Descriptor;
+using yi::google::protobuf::FieldDescriptor;
+using yi::google::protobuf::Message;
+using yi::google::protobuf::TextFormat;
+using yi::google::protobuf::internal::WireFormatLite;
+using yi::google::protobuf::util::NewTypeResolverForDescriptorPool;
 using proto2_messages::TestAllTypesProto2;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using std::string;
@@ -347,6 +347,7 @@ bool IsProto3Default(FieldDescriptor::Type type, const string& binary_data) {
 
 }  // anonymous namespace
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -3261,4 +3262,5 @@ void BinaryAndJsonConformanceSuite::RunJsonTestsForAny() {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

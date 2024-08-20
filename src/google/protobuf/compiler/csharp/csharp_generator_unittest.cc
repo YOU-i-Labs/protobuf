@@ -39,6 +39,7 @@
 
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -78,4 +79,5 @@ TEST(DescriptorProtoHelpers, IsDescriptorOptionMessage) {
 }  // namespace csharp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

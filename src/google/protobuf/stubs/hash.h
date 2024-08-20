@@ -39,10 +39,12 @@
 #include <unordered_set>
 
 # define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START \
+  namespace yi { \
   namespace google {                                      \
   namespace protobuf {
-# define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_END }}
+# define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_END }}}
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -109,6 +111,7 @@ struct hash<std::pair<First, Second> > {
 };
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_STUBS_HASH_H__

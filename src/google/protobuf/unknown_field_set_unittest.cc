@@ -59,6 +59,7 @@
 #include <google/protobuf/test_util.h>
 #include <google/protobuf/stubs/stl_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -205,13 +206,13 @@ TEST_F(UnknownFieldSetTest, SerializeFastAndSlowAreEquivalent) {
   fast_buffer.resize(size);
 
   uint8_t* target =
-      reinterpret_cast<uint8_t*>(::google::protobuf::string_as_array(&fast_buffer));
+      reinterpret_cast<uint8_t*>(::yi::google::protobuf::string_as_array(&fast_buffer));
   uint8_t* result = WireFormat::SerializeUnknownFieldsToArray(
       empty_message_.unknown_fields(), target);
   EXPECT_EQ(size, result - target);
 
   {
-    io::ArrayOutputStream raw_stream(::google::protobuf::string_as_array(&slow_buffer), size,
+    io::ArrayOutputStream raw_stream(::yi::google::protobuf::string_as_array(&slow_buffer), size,
                                      1);
     io::CodedOutputStream output_stream(&raw_stream);
     WireFormat::SerializeUnknownFields(empty_message_.unknown_fields(),
@@ -682,4 +683,5 @@ TEST_F(UnknownFieldSetTest, DeleteByNumber) {
 }  // namespace
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -67,14 +67,15 @@
 #include <google/protobuf/test_util2.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::io::win32::close;
-using google::protobuf::io::win32::open;
+using yi::google::protobuf::io::win32::close;
+using yi::google::protobuf::io::win32::open;
 #endif
 
 #ifndef O_BINARY
@@ -1128,4 +1129,5 @@ TEST(MESSAGE_TEST_NAME, PreservesFloatingPointNegative0) {
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

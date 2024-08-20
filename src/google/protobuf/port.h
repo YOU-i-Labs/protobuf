@@ -40,6 +40,7 @@
 #include <new>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace internal {
@@ -75,6 +76,7 @@ struct ArenaInitialized {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PORT_H__

@@ -48,6 +48,7 @@
 #include <google/protobuf/pyext/scoped_pyobject_ptr.h>
 #include <google/protobuf/stubs/map_util.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -588,4 +589,5 @@ PyTypeObject RepeatedCompositeContainer_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

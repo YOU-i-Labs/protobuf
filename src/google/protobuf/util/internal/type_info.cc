@@ -42,6 +42,7 @@
 #include <google/protobuf/stubs/map_util.h>
 #include <google/protobuf/stubs/status.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -179,4 +180,5 @@ TypeInfo* TypeInfo::NewTypeInfo(TypeResolver* type_resolver) {
 }  // namespace converter
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

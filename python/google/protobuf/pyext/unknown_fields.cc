@@ -41,6 +41,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/wire_format_lite.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -360,4 +361,5 @@ PyTypeObject PyUnknownFieldRef_Type = {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

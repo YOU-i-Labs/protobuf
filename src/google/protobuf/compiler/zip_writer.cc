@@ -39,6 +39,7 @@
 
 #include <google/protobuf/io/coded_stream.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -192,4 +193,5 @@ bool ZipWriter::WriteDirectory() {
 
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

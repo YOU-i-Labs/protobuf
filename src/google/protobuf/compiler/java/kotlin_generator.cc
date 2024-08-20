@@ -36,6 +36,7 @@
 #include <google/protobuf/compiler/java/helpers.h>
 #include <google/protobuf/compiler/java/options.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -155,4 +156,5 @@ bool KotlinGenerator::Generate(const FileDescriptor* file,
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -42,6 +42,7 @@
 #include <google/protobuf/stubs/stl_util.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1045,4 +1046,5 @@ bool MergedDescriptorDatabase::FindAllFileNames(
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

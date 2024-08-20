@@ -37,6 +37,7 @@
 
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -149,47 +150,48 @@ PROTOBUF_EXPORT Status UnknownError(StringPiece message);
 
 }  // namespace status_internal
 
-using ::google::protobuf::util::status_internal::Status;
-using ::google::protobuf::util::status_internal::StatusCode;
+using ::yi::google::protobuf::util::status_internal::Status;
+using ::yi::google::protobuf::util::status_internal::StatusCode;
 
-using ::google::protobuf::util::status_internal::IsAborted;
-using ::google::protobuf::util::status_internal::IsAlreadyExists;
-using ::google::protobuf::util::status_internal::IsCancelled;
-using ::google::protobuf::util::status_internal::IsDataLoss;
-using ::google::protobuf::util::status_internal::IsDeadlineExceeded;
-using ::google::protobuf::util::status_internal::IsFailedPrecondition;
-using ::google::protobuf::util::status_internal::IsInternal;
-using ::google::protobuf::util::status_internal::IsInvalidArgument;
-using ::google::protobuf::util::status_internal::IsNotFound;
-using ::google::protobuf::util::status_internal::IsOutOfRange;
-using ::google::protobuf::util::status_internal::IsPermissionDenied;
-using ::google::protobuf::util::status_internal::IsResourceExhausted;
-using ::google::protobuf::util::status_internal::IsUnauthenticated;
-using ::google::protobuf::util::status_internal::IsUnavailable;
-using ::google::protobuf::util::status_internal::IsUnimplemented;
-using ::google::protobuf::util::status_internal::IsUnknown;
+using ::yi::google::protobuf::util::status_internal::IsAborted;
+using ::yi::google::protobuf::util::status_internal::IsAlreadyExists;
+using ::yi::google::protobuf::util::status_internal::IsCancelled;
+using ::yi::google::protobuf::util::status_internal::IsDataLoss;
+using ::yi::google::protobuf::util::status_internal::IsDeadlineExceeded;
+using ::yi::google::protobuf::util::status_internal::IsFailedPrecondition;
+using ::yi::google::protobuf::util::status_internal::IsInternal;
+using ::yi::google::protobuf::util::status_internal::IsInvalidArgument;
+using ::yi::google::protobuf::util::status_internal::IsNotFound;
+using ::yi::google::protobuf::util::status_internal::IsOutOfRange;
+using ::yi::google::protobuf::util::status_internal::IsPermissionDenied;
+using ::yi::google::protobuf::util::status_internal::IsResourceExhausted;
+using ::yi::google::protobuf::util::status_internal::IsUnauthenticated;
+using ::yi::google::protobuf::util::status_internal::IsUnavailable;
+using ::yi::google::protobuf::util::status_internal::IsUnimplemented;
+using ::yi::google::protobuf::util::status_internal::IsUnknown;
 
-using ::google::protobuf::util::status_internal::AbortedError;
-using ::google::protobuf::util::status_internal::AlreadyExistsError;
-using ::google::protobuf::util::status_internal::CancelledError;
-using ::google::protobuf::util::status_internal::DataLossError;
-using ::google::protobuf::util::status_internal::DeadlineExceededError;
-using ::google::protobuf::util::status_internal::FailedPreconditionError;
-using ::google::protobuf::util::status_internal::InternalError;
-using ::google::protobuf::util::status_internal::InvalidArgumentError;
-using ::google::protobuf::util::status_internal::NotFoundError;
-using ::google::protobuf::util::status_internal::OkStatus;
-using ::google::protobuf::util::status_internal::OutOfRangeError;
-using ::google::protobuf::util::status_internal::PermissionDeniedError;
-using ::google::protobuf::util::status_internal::ResourceExhaustedError;
-using ::google::protobuf::util::status_internal::UnauthenticatedError;
-using ::google::protobuf::util::status_internal::UnavailableError;
-using ::google::protobuf::util::status_internal::UnimplementedError;
-using ::google::protobuf::util::status_internal::UnknownError;
+using ::yi::google::protobuf::util::status_internal::AbortedError;
+using ::yi::google::protobuf::util::status_internal::AlreadyExistsError;
+using ::yi::google::protobuf::util::status_internal::CancelledError;
+using ::yi::google::protobuf::util::status_internal::DataLossError;
+using ::yi::google::protobuf::util::status_internal::DeadlineExceededError;
+using ::yi::google::protobuf::util::status_internal::FailedPreconditionError;
+using ::yi::google::protobuf::util::status_internal::InternalError;
+using ::yi::google::protobuf::util::status_internal::InvalidArgumentError;
+using ::yi::google::protobuf::util::status_internal::NotFoundError;
+using ::yi::google::protobuf::util::status_internal::OkStatus;
+using ::yi::google::protobuf::util::status_internal::OutOfRangeError;
+using ::yi::google::protobuf::util::status_internal::PermissionDeniedError;
+using ::yi::google::protobuf::util::status_internal::ResourceExhaustedError;
+using ::yi::google::protobuf::util::status_internal::UnauthenticatedError;
+using ::yi::google::protobuf::util::status_internal::UnavailableError;
+using ::yi::google::protobuf::util::status_internal::UnimplementedError;
+using ::yi::google::protobuf::util::status_internal::UnknownError;
 
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

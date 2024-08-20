@@ -41,6 +41,7 @@
 #include <google/protobuf/port_def.inc>
 #include <vector>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -943,7 +944,8 @@ double NoLocaleStrtod(const char* str, char** endptr);
 }  // namespace internal
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

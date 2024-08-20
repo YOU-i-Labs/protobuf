@@ -37,6 +37,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -127,6 +128,7 @@ class ArenaHolder {
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_ARENA_TEST_UTIL_H__

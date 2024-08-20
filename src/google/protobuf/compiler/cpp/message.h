@@ -46,14 +46,17 @@
 #include <google/protobuf/compiler/cpp/options.h>
 #include <google/protobuf/compiler/cpp/parse_function_generator.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
 class Printer;  // printer.h
 }
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -227,6 +230,7 @@ class MessageGenerator {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_CPP_MESSAGE_H__

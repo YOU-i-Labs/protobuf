@@ -39,6 +39,7 @@
 #include <gtest/gtest.h>
 #include <google/protobuf/stubs/mathutil.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace util {
@@ -502,4 +503,5 @@ TEST_F(DefaultFieldComparatorTest, RepeatedFieldComparison) {
 }  // namespace
 }  // namespace util
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

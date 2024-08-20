@@ -52,6 +52,7 @@
               : 0)                                               \
        : PyBytes_AsStringAndSize(ob, (charpp), (sizep)))
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -814,4 +815,5 @@ PyObject* PyDescriptorPool_FromPool(const DescriptorPool* pool) {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

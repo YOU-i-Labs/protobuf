@@ -34,6 +34,7 @@
 #include <google/protobuf/pyext/descriptor.h>
 #include <google/protobuf/pyext/message.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -140,4 +141,5 @@ PyObject* NewFieldProperty(const FieldDescriptor* field_descriptor) {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

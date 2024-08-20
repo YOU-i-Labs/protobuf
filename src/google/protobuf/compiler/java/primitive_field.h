@@ -40,6 +40,7 @@
 
 #include "google/protobuf/compiler/java/field.h"
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -49,8 +50,10 @@ class ClassNameResolver;  // name_resolver.h
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -161,6 +164,7 @@ class RepeatedImmutablePrimitiveFieldGenerator
 }  // namespace java
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_PRIMITIVE_FIELD_H__

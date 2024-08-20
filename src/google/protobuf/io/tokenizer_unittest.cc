@@ -47,6 +47,7 @@
 #include <google/protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace io {
@@ -1172,4 +1173,5 @@ TEST_1D(TokenizerTest, BackUpOnDestruction, kBlockSizes) {
 }  // namespace
 }  // namespace io
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

@@ -62,6 +62,7 @@
 // Must be last.
 #include <google/protobuf/port_def.inc>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -1596,4 +1597,5 @@ bool HasMessageFieldOrExtension(const Descriptor* desc) {
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

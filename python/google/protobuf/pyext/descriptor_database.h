@@ -36,6 +36,7 @@
 
 #include <google/protobuf/descriptor_database.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace python {
@@ -78,6 +79,7 @@ class PyDescriptorDatabase : public DescriptorDatabase {
 
 }  // namespace python
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_DATABASE_H__

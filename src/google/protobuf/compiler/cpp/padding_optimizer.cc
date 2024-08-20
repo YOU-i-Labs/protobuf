@@ -32,6 +32,7 @@
 
 #include <google/protobuf/compiler/cpp/helpers.h>
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace compiler {
@@ -225,4 +226,5 @@ void PaddingOptimizer::OptimizeLayout(
 }  // namespace cpp
 }  // namespace compiler
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

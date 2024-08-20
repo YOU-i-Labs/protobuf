@@ -53,6 +53,7 @@
 #include <google/protobuf/port_def.inc>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -1018,7 +1019,8 @@ PROTOBUF_NODISCARD PROTOBUF_EXPORT const char* UnknownFieldParse(
 
 }  // namespace internal
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
 
 #include <google/protobuf/port_undef.inc>
 

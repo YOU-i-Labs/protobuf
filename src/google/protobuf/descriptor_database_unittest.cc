@@ -49,6 +49,7 @@
 #include <gtest/gtest.h>
 
 
+namespace yi {
 namespace google {
 namespace protobuf {
 namespace {
@@ -809,4 +810,5 @@ TEST_F(MergedDescriptorDatabaseTest, FindAllFileNames) {
 
 }  // anonymous namespace
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi

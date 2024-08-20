@@ -47,9 +47,9 @@
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
 using conformance::WireFormat;
-using google::protobuf::TextFormat;
-using google::protobuf::util::DefaultFieldComparator;
-using google::protobuf::util::MessageDifferencer;
+using yi::google::protobuf::TextFormat;
+using yi::google::protobuf::util::DefaultFieldComparator;
+using yi::google::protobuf::util::MessageDifferencer;
 using std::string;
 
 namespace {
@@ -71,6 +71,7 @@ static string ToOctString(const string& binary_string) {
 
 }  // namespace
 
+namespace yi {
 namespace google {
 namespace protobuf {
 
@@ -465,4 +466,5 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
 }
 
 }  // namespace protobuf
-}  // namespace google
+} // namespace google
+} // namespace yi
