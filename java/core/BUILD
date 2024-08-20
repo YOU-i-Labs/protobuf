@@ -27,6 +27,7 @@ LITE_SRCS = [
     "src/main/java/com/google/protobuf/CodedInputStreamReader.java",
     "src/main/java/com/google/protobuf/CodedOutputStream.java",
     "src/main/java/com/google/protobuf/CodedOutputStreamWriter.java",
+    "src/main/java/com/google/protobuf/CompileTimeConstant.java",
     "src/main/java/com/google/protobuf/DoubleArrayList.java",
     "src/main/java/com/google/protobuf/ExperimentalApi.java",
     "src/main/java/com/google/protobuf/ExtensionLite.java",
@@ -41,6 +42,7 @@ LITE_SRCS = [
     "src/main/java/com/google/protobuf/FloatArrayList.java",
     "src/main/java/com/google/protobuf/GeneratedMessageInfoFactory.java",
     "src/main/java/com/google/protobuf/GeneratedMessageLite.java",
+    "src/main/java/com/google/protobuf/InlineMe.java",
     "src/main/java/com/google/protobuf/IntArrayList.java",
     "src/main/java/com/google/protobuf/Internal.java",
     "src/main/java/com/google/protobuf/InvalidProtocolBufferException.java",
@@ -176,6 +178,21 @@ proto_lang_toolchain(
     command_line = "--java_out=$(OUT)",
     runtime = ":core",
     visibility = ["//visibility:public"],
+    # keep this in sync w/ WELL_KNOWN_PROTO_MAP in //:BUILD
+    blacklisted_protos = [
+        "//:any_proto",
+        "//:api_proto",
+        "//:compiler_plugin_proto",
+        "//:descriptor_proto",
+        "//:duration_proto",
+        "//:empty_proto",
+        "//:field_mask_proto",
+        "//:source_context_proto",
+        "//:struct_proto",
+        "//:timestamp_proto",
+        "//:type_proto",
+        "//:wrappers_proto",
+    ],
 )
 
 proto_library(
@@ -216,6 +233,7 @@ java_library(
         "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
     ],
+    visibility = ["//java:__subpackages__"],
 )
 
 test_suite(
@@ -224,6 +242,7 @@ test_suite(
         "conformance_test",
         "core_build_test",
         "core_tests",
+        "utf8_tests",
     ],
 )
 
@@ -243,10 +262,12 @@ conformance_test(
 
 junit_tests(
     name = "core_tests",
-    size = "large",
+    size = "small",
     srcs = glob(
         ["src/test/java/**/*.java"],
         exclude = [
+            "src/test/java/com/google/protobuf/DecodeUtf8Test.java",
+            "src/test/java/com/google/protobuf/IsValidUtf8Test.java",
             "src/test/java/com/google/protobuf/TestUtil.java",
             "src/test/java/com/google/protobuf/TestUtilLite.java",
         ],
@@ -260,7 +281,25 @@ junit_tests(
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_truth_truth",
         "@maven//:junit_junit",
-        "@maven//:org_easymock_easymock",
+        "@maven//:org_mockito_mockito_core",
+    ],
+)
+
+# The UTF-8 validation tests are much slower than the other tests, so they get
+# their own test target with a longer timeout.
+junit_tests(
+    name = "utf8_tests",
+    size = "large",
+    srcs = [
+        "src/test/java/com/google/protobuf/DecodeUtf8Test.java",
+        "src/test/java/com/google/protobuf/IsValidUtf8Test.java",
+        "src/test/java/com/google/protobuf/IsValidUtf8TestUtil.java",
+    ],
+    deps = [
+        ":core",
+        "@maven//:com_google_guava_guava",
+        "@maven//:com_google_truth_truth",
+        "@maven//:junit_junit",
     ],
 )
 
@@ -298,6 +337,7 @@ java_library(
     ],
     visibility = [
         "//java/lite:__pkg__",
+        "//java/kotlin-lite:__pkg__",
     ],
     deps = [
         ":generic_test_protos_java_proto_lite",
@@ -346,6 +386,7 @@ LITE_TEST_EXCLUSIONS = [
     "src/test/java/com/google/protobuf/TypeRegistryTest.java",
     "src/test/java/com/google/protobuf/UnknownEnumValueTest.java",
     "src/test/java/com/google/protobuf/UnknownFieldSetLiteTest.java",
+    "src/test/java/com/google/protobuf/UnknownFieldSetPerformanceTest.java",
     "src/test/java/com/google/protobuf/UnknownFieldSetTest.java",
     "src/test/java/com/google/protobuf/WellKnownTypesTest.java",
     "src/test/java/com/google/protobuf/WireFormatTest.java",
@@ -367,6 +408,6 @@ junit_tests(
         ":test_util_lite",
         "@maven//:com_google_truth_truth",
         "@maven//:junit_junit",
-        "@maven//:org_easymock_easymock",
+        "@maven//:org_mockito_mockito_core",
     ],
 )
